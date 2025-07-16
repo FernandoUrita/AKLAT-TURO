@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AKLAT-TURO - Story Categories</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="image/read.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="image/read.png">
+    <style>
+        :root {
+            --primary-brown: #8B6B4D;
+            --light-brown: #D2B48C;
+            --lighter-brown: #F5E7D9;
+            --dark-brown: #5D4037;
+            --text-color: #333;
+            --light-text: #f9f9f9;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--lighter-brown);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-brown);
+            color: var(--light-text);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--light-brown);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light-text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .categories-section {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark-brown);
+            font-size: 2.2rem;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .category-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .category-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .category-card:hover .category-img img {
+            transform: scale(1.05);
+        }
+
+        .category-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 1rem;
+            color: white;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .category-stories-count {
+            font-size: 0.9rem;
+            color: var(--light-brown);
+        }
+
+        .category-content {
+            padding: 1.5rem;
+        }
+
+        .stories-list {
+            margin-top: 1rem;
+        }
+
+        .story-item {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .story-item:last-child {
+            border-bottom: none;
+        }
+
+        .story-item i {
+            margin-right: 10px;
+            color: var(--primary-brown);
+        }
+
+        .story-item a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .story-item a:hover {
+            color: var(--primary-brown);
+        }
+
+        .view-all {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--primary-brown);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        .view-all i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+
+        .view-all:hover i {
+            transform: translateX(3px);
+        }
+
+        footer {
+            background-color: var(--dark-brown);
+            color: var(--light-text);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .social-links {
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            color: var(--light-text);
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--light-brown);
+        }
+
+        .footer-links {
+            display: flex;
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .footer-links li {
+            margin: 0 1rem;
+        }
+
+        .footer-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--light-brown);
+        }
+
+        .copyright {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo {
+                margin-bottom: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+            }
+
+            .footer-links li {
+                margin: 0.5rem 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-book-open"></i>
+                    AKLAT-TURO
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#stories-section">Stories</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="categories-section">
+        <div class="container">
+            <h2 class="section-title">Story Categories</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Kasaysayan ng Pilipinas">
+                        <div class="category-overlay">
+                            <h3 class="category-title">Kasaysayan ng Pilipinas</h3>
+                            <span class="category-stories-count">3 Stories</span>
+                        </div>
+                    </div>
+                    <div class="category-content">
+                        <p>Mga kwentong naglalarawan ng makulay na kasaysayan at kultura ng Pilipinas.</p>
+                        <div class="stories-list">
+                            <div class="story-item">
+                                <i class="fas fa-book"></i>
+                                <a href="story.html">Walang Sugat</a>
+                            </div>
+                            <div class="story-item">
+                                <i class="fas fa-book"></i>
+                                <a href="story.html">Miliminas: Taong 0069</a>
+                            </div>
+                            <div class="story-item">
+                                <i class="fas fa-book"></i>
+                                <a href="story.html">Ang Ama</a>
+                            </div>
+                        </div>
+                        <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1509233725247-49e657c54213?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Drama">
+                        <div class="category-overlay">
+                            <h3 class="category-title">Drama</h3>
+                            <span class="category-stories-count">2 Stories</span>
+                        </div>
+                    </div>
+                    <div class="category-content">
+                        <p>Makabagbag-damdaming mga kwento ng pag-ibig, sakripisyo, at paghihirap.</p>
+                        <div class="stories-list">
+                            <div class="story-item">
+                                <i class="fas fa-book"></i>
+                                <a href="story.html">Ang Ama</a>
+                            </div>
+                            <div class="story-item">
+                                <i class="fas fa-book"></i>
+                                <a href="story.html">Paalam sa Pagkabata</a>
+                            </div>
+                        </div>
+                        <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Science Fiction">
+                        <div class="category-overlay">
+                            <h3 class="category-title">Science Fiction</h3>
+                            <span class="category-stories-count">1 Story</span>
+                        </div>
+                    </div>
+                    <div class="category-content">
+                        <p>Mga kakaibang kwento ng hinaharap, teknolohiya, at imahinasyon.</p>
+                        <div class="stories-list">
+                            <div class="story-item">
+                                <i class="fas fa-book"></i>
+                                <a href="story.html">Miliminas: Taong 0069</a>
+                            </div>
+                        </div>
+                        <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Romansa">
+                        <div class="category-overlay">
+                            <h3 class="category-title">Romansa</h3>
+                            <span class="category-stories-count">1 Story</span>
+                        </div>
+                    </div>
+                    <div class="category-content">
+                        <p>Mga kwento ng pag-ibig, paghihiwalay, at muling pagtatagpo.</p>
+                        <div class="stories-list">
+                            <div class="story-item">
+                                <i class="fas fa-book"></i>
+                                <a href="story.html">Walang Sugat</a>
+                            </div>
+                        </div>
+                        <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Coming-of-age">
+                        <div class="category-overlay">
+                            <h3 class="category-title">Coming-of-age</h3>
+                            <span class="category-stories-count">1 Story</span>
+                        </div>
+                    </div>
+                    <div class="category-content">
+                        <p>Mga kwento ng paglaki at pagbabago sa buhay ng mga tauhan.</p>
+                        <div class="stories-list">
+                            <div class="story-item">
+                                <i class="fas fa-book"></i>
+                                <a href="story.html">Paalam sa Pagkabata</a>
+                            </div>
+                        </div>
+                        <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sosyo-politikal">
+                        <div class="category-overlay">
+                            <h3 class="category-title">Sosyo-politikal</h3>
+                            <span class="category-stories-count">1 Story</span>
+                        </div>
+                    </div>
+                    <div class="category-content">
+                        <p>Mga kwentong naglalarawan ng mga isyung panlipunan at pampulitika.</p>
+                        <div class="stories-list">
+                            <div class="story-item">
+                                <i class="fas fa-book"></i>
+                                <a href="story.html">Tata Selo</a>
+                            </div>
+                        </div>
+                        <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">
+                    <i class="fas fa-book-open"></i>
+                    AKLAT-TURO
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="index.html#stories-section">Stories</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <p class="copyright">© 2025 AKLAT-TURO. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav ul');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Responsive nav adjustment
+        function adjustNav() {
+            if (window.innerWidth <= 768) {
+                nav.style.display = 'none';
+                mobileMenuBtn.style.display = 'block';
+            } else {
+                nav.style.display = 'flex';
+                mobileMenuBtn.style.display = 'none';
+            }
+        }
+
+        window.addEventListener('resize', adjustNav);
+        adjustNav(); // Initialize
+    </script>
+</body>
+</html>
