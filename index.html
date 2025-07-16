@@ -3,800 +3,568 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AKLAT-TURO: Mga Maikling Kwento Sa Pilipinas</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>AKLAT-TURO - Group 27 Story Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" type="image/png" sizes="32x32" href="image/read.png">
     <link rel="icon" type="image/png" sizes="16x16" href="image/read.png">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --primary-brown: #8B6B4D;
+            --light-brown: #D2B48C;
+            --lighter-brown: #F5E7D9;
+            --dark-brown: #5D4037;
+            --text-color: #333;
+            --light-text: #f9f9f9;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--lighter-brown);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-brown);
+            color: var(--light-text);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--light-brown);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light-text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-brown);
+            color: var(--light-text);
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--dark-brown);
+        }
+
+        .stories-section {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark-brown);
+            font-size: 2.2rem;
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .story-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .story-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .story-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .story-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .story-card:hover .story-img img {
+            transform: scale(1.05);
+        }
+
+        .story-content {
+            padding: 1.5rem;
+        }
+
+        .story-category {
+            display: inline-block;
+            background-color: var(--light-brown);
+            color: var(--text-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .story-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-brown);
+        }
+
+        .story-excerpt {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: var(--primary-brown);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .read-more i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+
+        .read-more:hover i {
+            transform: translateX(3px);
+        }
+
+        .newsletter {
+            background-color: var(--primary-brown);
+            padding: 3rem 0;
+            text-align: center;
+            color: var(--light-text);
+        }
+
+        .newsletter h2 {
+            margin-bottom: 1rem;
+        }
+
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            background-color: var(--dark-brown);
+            color: white;
+            border: none;
+            padding: 0 1.5rem;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #3E2723;
+        }
+
+        footer {
+            background-color: var(--dark-brown);
+            color: var(--light-text);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .social-links {
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            color: var(--light-text);
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--light-brown);
+        }
+
+        .footer-links {
+            display: flex;
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .footer-links li {
+            margin: 0 1rem;
+        }
+
+        .footer-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--light-brown);
+        }
+
+        .copyright {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Single Story Page Styles */
+        .story-header {
+            padding: 4rem 0 2rem;
+            text-align: center;
+            background-color: var(--light-brown);
+        }
+
+        .story-header h1 {
+            font-size: 2.5rem;
+            color: var(--dark-brown);
+            margin-bottom: 1rem;
+        }
+
+        .story-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .story-content {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .story-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo {
+                margin-bottom: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input {
+                border-radius: 5px;
+                margin-bottom: 0.5rem;
+            }
+
+            .newsletter-form button {
+                border-radius: 5px;
+                padding: 0.8rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+            }
+
+            .footer-links li {
+                margin: 0.5rem 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                height: 50vh;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .story-header h1 {
+                font-size: 2rem;
+            }
+
+            .story-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <button id="sidebar-toggle" aria-label="Toggle menu"><i class="fas fa-bars"></i> <span class="hide-on-mobile">Menu</span></button>
-        <div class="logo">
-            <i class="fas fa-book-open logo-icon"></i>
-            <span class="logo-text">AKLAT-TURO</span>
-        </div>
-        <div class="controls">
-            <button id="tts-btn" class="secondary" title="Text-to-Speech" data-tooltip="Text-to-Speech"><i class="fas fa-volume-up"></i> <span class="hide-on-mobile">TTS</span></button>
-            <button id="bookmark-btn" class="secondary" title="Bookmark" data-tooltip="Bookmark"><i class="far fa-bookmark"></i> <span class="hide-on-mobile">Bookmark</span></button>
-            <button id="night-mode-toggle" class="secondary" title="Night Mode" data-tooltip="Night Mode"><i class="fas fa-moon"></i> <span class="hide-on-mobile">Night</span></button>
-            <button id="dark-mode-toggle" class="secondary" title="Dark Mode" data-tooltip="Dark Mode"><i class="fas fa-adjust"></i> <span class="hide-on-mobile">Dark</span></button>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-book-open"></i>
+                    AKLAT-TURO
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#stories-section">Stories</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
     </header>
 
-    <div class="overlay" id="overlay"></div>
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>Tuklasin ang mga Maikling Kwento</h1>
+            <p>Isawsaw ang iyong sarili sa mga maikling kuwento sa aming koleksyon ng mga piniling maikling kuwento mula sa mahuhusay na manunulat sa buong mundo.</p>
+            <a href="story.html" class="btn">Start Reading</a>
+        </div>
+    </section>
 
-    <div class="sidebar" id="sidebar">
-        <div class="search-container">
-            <input type="text" id="search-bar" placeholder="Maghanap ng kwento...">
-        </div>
-        
-        <div class="profile-section">
-            <div class="profile-pic">U</div>
-            <div class="profile-info">
-                <h4>Mambabasa</h4>
-                <p>0 stories read</p>
-            </div>
-        </div>
-        
-        <div style="padding: 0 1rem 1rem;">
-            <h3 class="section-title"><i class="fas fa-fire"></i> Mga Trending</h3>
-            <div id="featured-stories"></div>
-            
-            <h3 class="section-title"><i class="fas fa-bookmark"></i> Mga Bookmark</h3>
-            <div id="bookmarked-stories"></div>
-            
-            <h3 class="section-title"><i class="fas fa-history"></i> Kamakailan</h3>
-            <div id="recent-stories"></div>
-            
-            <h3 class="section-title"><i class="fas fa-book"></i> Lahat ng Kwento</h3>
-            <div id="story-list"></div>
-        </div>
-    </div>
+    <section class="stories-section" id="stories-section">
+        <div class="container">
+            <h2 class="section-title">Featured Stories</h2>
+            <div class="stories-grid">
+                <article class="story-card">
+                    <div class="story-img">
+                        <img src="https://i.mydramalist.com/ZpYe7_4s.jpg" alt="Walang Sugat">
+                    </div>
+                    <div class="story-content">
+                        <span class="story-category">Kasaysayan ng Pilipinas</span>
+                        <h3 class="story-title">Walang Sugat</h3>
+                        <p class="story-excerpt">Isang klasikong dulang naglalarawan ng pag-ibig at paghihiganti sa panahon ng mga Kastila.</p>
+                        <a href="#" class="read-more">Read more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
 
-    <div class="main-content">
-        <div class="reader">
-            <div class="reader-controls">
-                <div class="control-group">
-                    <button id="font-decrease" title="Smaller Text" data-tooltip="Smaller Text"><i class="fas fa-font"></i> <span>-</span></button>
-                    <button id="font-reset" title="Reset Text Size" data-tooltip="Reset Text Size"><i class="fas fa-font"></i> <span>•</span></button>
-                    <button id="font-increase" title="Larger Text" data-tooltip="Larger Text"><i class="fas fa-font"></i> <span>+</span></button>
-                </div>
-                <div class="control-group">
-                    <button id="tts-control" class="secondary"><i class="fas fa-play"></i> <span>Basahin</span></button>
-                    <button id="night-reading" class="secondary"><i class="fas fa-bed"></i> <span>Night Mode</span></button>
-                </div>
+                <article class="story-card">
+                    <div class="story-img">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1fVB-4kfa6dvBM-wGB4rWxpT2hsdtpP4dOQ&s" alt="Ang Ama">
+                    </div>
+                    <div class="story-content">
+                        <span class="story-category">Drama</span>
+                        <h3 class="story-title">Ang Ama</h3>
+                        <p class="story-excerpt">Isang makabagbag-damdaming kwento tungkol sa pagmamahal ng isang ama.</p>
+                        <a href="#" class="read-more">Read more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="story-card">
+                    <div class="story-img">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLxv4buQGPS1N6o-Jji5vMscvrr1kz0g8DRg&s" alt="Miliminas: Taong 0069">
+                    </div>
+                    <div class="story-content">
+                        <span class="story-category">Kasaysayan ng Pilipinas</span>
+                        <h3 class="story-title">Miliminas: Taong 0069</h3>
+                        <p class="story-excerpt">isang pangkat ng kapuluan na matatagpuan sa kagitnnan ng dagat Pasipiko bago pa man magkaroon ng isang malawakang pagbaha ng tubig.</p>
+                        <a href="#" class="read-more">Read more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
             </div>
-            
-            <div class="progress-container">
-                <div class="progress-bar" id="progress-bar"></div>
-            </div>
-            
-            <div class="reader-header">
-                <div>
-                    <h1 class="reader-title" id="story-title">Pumili ng Kwento</h1>
-                    <p class="reader-author" id="story-author"></p>
-                </div>
-                <button id="story-details" class="secondary story-details-btn"><i class="fas fa-info-circle"></i> <span>Details</span></button>
-            </div>
-            
-            <div id="story-content" class="reader-content">
-                <div class="empty-state">
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <div class="container">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Get the latest stories delivered straight to your inbox every week.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">
                     <i class="fas fa-book-open"></i>
-                    <h3>Walang Kwentong Napili</h3>
-                    <p>Pumili ng kwento mula sa menu upang simulan ang pagbabasa.</p>
+                    StoryTeller
                 </div>
-            </div>
-            
-            <div class="navigation">
-                <button id="prev-btn"><i class="fas fa-arrow-left"></i> <span>Nakaraan</span></button>
-                <span id="chapter-indicator">-/-</span>
-                <button id="next-btn"><span>Susunod</span> <i class="fas fa-arrow-right"></i></button>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Story Details Modal -->
-    <div class="modal" id="story-modal">
-        <div class="modal-content">
-            <button class="close-modal" id="close-modal" aria-label="Close modal">&times;</button>
-            <h2 id="modal-title"></h2>
-            <p class="reader-author" id="modal-author"></p>
-            
-            <div class="categories" id="modal-categories">
-                <span class="category">Maikling Kwento</span>
-                <span class="category">Klasiko</span>
-            </div>
-            
-            <div style="margin: 1.5rem 0;">
-                <h4>Tungkol sa Kwento</h4>
-                <p id="modal-description" style="margin-top: 0.5rem;"></p>
-            </div>
-            
-            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                <button id="start-reading" style="flex: 1;"><i class="fas fa-book-open"></i> <span>Basahin</span></button>
-                <button id="modal-bookmark" class="secondary" style="flex: 1;"><i class="far fa-bookmark"></i> <span>Bookmark</span></button>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Stories</a></li>
+                    <li><a href="#">Authors</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <p class="copyright">© 2025 AKLAT-TURO. All rights reserved.</p>
             </div>
         </div>
-    </div>
+    </footer>
 
     <script>
-        // Enhanced Stories Data
-        const stories = [
-            {
-                title: "Ang Ama",
-                author: "Mauro R. Avena",
-                cover: "👨‍👧‍👦",
-                description: "Isang makabagbag-damdaming kwento tungkol sa pagmamahal ng isang ama sa kanyang mga anak at ang mga sakripisyo niya para sa pamilya. Ang kwentong ito ay naglalarawan ng tunay na kahulugan ng pagiging ama at ang mga pagsubok na kanyang kinakaharap para sa ikabubuti ng kanyang pamilya.",
-                chapters: [
-                    "Ang pagdating ng ama mula sa kanyang malayong trabaho ay laging puno ng tuwa at pag-asa. Ang mga bata'y nag-aabang sa may bintana, kanilang mga mata'y nagniningning sa pag-asang may dalang pasalubong ang kanilang ama. Ngunit sa likod ng ngiting iyon, may dala-dala siyang lihim na pasan.",
-                    "Ang mga regalong dala ng ama ay simple lamang - kendi mula sa bayan, mga laruan na yari sa kahoy, at minsa'y isang bagong kwento na kanyang narinig sa kanyang paglalakbay. Ngunit ang tunay na regalo ay ang kanyang presensya, ang init ng kanyang yakap, at ang kanyang mga payo na tila bumabalot sa kanila ng ligtas na pakiramdam.",
-                    "Ngunit isang gabi, narinig ng panganay na anak ang ubo ng kanyang ama mula sa kabilang silid. Tahimik siyang lumapit at nakita ang kanyang ama, hawak ang isang puting panyo na may bahid ng dugo. Doon niya natanto ang katotohanan - ang kanyang ama ay may malubhang sakit, at ang lahat ng pagod at sakripisyo ay para lamang matustusan ang kanilang pangangailangan hanggang sa huling sandali."
-                ],
-                rating: 4.5,
-                reads: 1250,
-                published: "1962",
-                categories: ["Pamilya", "Drama", "Klasiko"],
-                featured: true
-            },
-            {
-                title: "Miliminas: Taong 0069",
-                author: "Nilo Par. Pamonag",
-                cover: "🌌",
-                description: "Isang kakaibang kwento ng science fiction na naglalarawan ng buhay sa ibang planeta at ang pakikipagsapalaran ng pangunahing tauhan. Ang kwentong ito ay nagtatalakay ng mga tema ng pag-iral, identidad, at ang paghahanap ng tunay na tahanan.",
-                chapters: [
-                    "Si Miliminas ay isang nilalang mula sa malayong planeta ng Zorcon, kung saan ang mga naninirahan ay may kakayahang baguhin ang kanilang anyo ayon sa kanilang kagustuhan. Ngunit si Miliminas ay iba - siya ay may pagnanais na tuklasin ang iba't ibang mundo at kultura.",
-                    "Sa kanyang paglalakbay, napadpad si Miliminas sa planetang Earth noong taong 0069. Dito niya natuklasan ang kakaibang kagandahan ng mundo ng tao - ang mga puno, dagat, at ang masalimuot na emosyon ng mga tao na hindi niya naranasan sa Zorcon.",
-                    "Habang nagbabago-bago ang kanyang anyo upang umangkop sa mundong kanyang napuntahan, unti-unti niyang natutunan ang kahulugan ng pagiging totoo sa sarili. Sa huli, kailangan niyang pumili - manatili sa Earth bilang isang tao, o bumalik sa Zorcon bilang isang tunay na Zorconian."
-                ],
-                rating: 4.2,
-                reads: 890,
-                published: "1975",
-                categories: ["Science Fiction", "Adventure", "Fantasy"],
-                featured: true
-            },
-            {
-                title: "Paalam sa Pagkabata",
-                author: "Nazareno D. Bas",
-                cover: "👋",
-                description: "Isang masalimuot na kwento ng paglaki at pagbabago, kung saan ang pangunahing tauhan ay nahaharap sa mga realidad ng buhay. Ang kwentong ito ay naglalarawan ng mahirap na transisyon mula sa pagkabata tungo sa pagiging adulto.",
-                chapters: [
-                    "Ang mga huling araw ng pagkabata ni Ben ay puno ng inosente at malayang paglalaro. Ang kanyang mundo ay umiikot lamang sa kanilang maliit na baryo, sa kanyang mga kaibigan, at sa simpleng problema kung sino ang magiging 'taya' sa susunod na laro.",
-                    "Ngunit ang lahat ay nagbago nang mamatay ang kanyang ama. Bigla niyang natutunan ang mga bagay na hindi itinuturo sa paaralan - ang hirap ng buhay, ang bigat ng responsibilidad, at ang pait ng pagkawala. Ang kanyang ina ay napilitang magtrabaho sa lungsod, at si Ben ay naiwang mag-isa para alagaan ang kanyang nakababatang kapatid.",
-                    "Sa paglipas ng panahon, natutunan ni Ben ang mga aral ng buhay sa mahirap na paraan. Ang kanyang mga laro ay napalitan ng trabaho, ang kanyang mga pangarap ay napalitan ng praktikal na plano. Sa kanyang kaarawan na labing-walo, tiningnan niya ang kanyang larawan noong bata pa siya at nagpaalam sa kanyang nakaraan - 'Paalam sa aking pagkabata, salamat sa lahat ng alaala.'"
-                ],
-                rating: 4.7,
-                reads: 1500,
-                published: "1958",
-                categories: ["Coming-of-age", "Drama", "Literary"]
-            },
-            {
-                title: "Walang Sugat",
-                author: "Severino Reyes",
-                cover: "🎭",
-                description: "Isang klasikong dulang naglalarawan ng pag-ibig at paghihiganti sa panahon ng mga Kastila. Ang kwentong ito ay sumasalamin sa mga pangyayari noong panahon ng rebolusyon at ang mga personal na sakripisyo ng mga Pilipino para sa kalayaan.",
-                chapters: [
-                    "Ang pagtatagpo nina Tenyong at Julia ay tila hinugot mula sa isang romantikong tula. Si Tenyong, ang anak ng isang rebolusyonaryo, at si Julia, ang anak ng isang mayamang Kastila, ay nagmamahalan sa kabila ng kanilang magkaibang mundo.",
-                    "Ngunit ang kanilang pag-ibig ay hindi pinahintulutan ng kanilang mga pamilya. Si Tenyong ay napilitang sumama sa mga rebolusyonaryo, habang si Julia ay pinakasalan ang isang Kastila laban sa kanyang kalooban. Ang digmaan ay hindi lamang sa pagitan ng mga Kastila at Pilipino, kundi pati na rin sa pagitan ng puso at tungkulin.",
-                    "Matapos ang maraming taon, muling nagtagpo sina Tenyong at Julia. Si Tenyong ay sugatan mula sa digmaan, ngunit ang kanyang pag-ibig ay walang sugat. Sa huli, kanilang natuklasan na ang tunay na kalayaan ay hindi lamang ang paglaya ng bansa mula sa mga mananakop, kundi ang paglaya ng puso mula sa poot at paghihiganti."
-                ],
-                rating: 4.8,
-                reads: 2100,
-                published: "1898",
-                categories: ["Romansa", "Kasaysayan", "Klasiko"],
-                featured: true
-            },
-            {
-                title: "Tata Selo",
-                author: "Rogelio Sikat",
-                cover: "🌾",
-                description: "Isang makapangyarihang kwento tungkol sa isang magsasaka at ang kanyang pakikibaka laban sa sistemang pang-ekonomiya. Ang kwentong ito ay naglalarawan ng kawalan ng katarungan sa lipunan at ang paghihirap ng mga ordinaryong manggagawa.",
-                chapters: [
-                    "Ang pang-araw-araw na buhay ni Tata Selo ay simple ngunit puno ng hirap. Bawat umaga, gumigising siya bago sumikat ang araw upang mag-araro sa bukid na hindi naman sa kanya. Ang kanyang tanging kayamanan ay ang kanyang pamilya at ang kanyang dangal bilang isang masipag na magsasaka.",
-                    "Ang pagdating ng mga bagong may-ari ng lupa ay nagdulot ng malaking pagbabago. Ang dating mababait na amo ay pinalitan ng isang korporasyon na walang pakialam sa kapakanan ng mga magsasaka. Ang mga patakaran ay naging mahigpit, ang mga upa ay tumaas, at ang mga parusa ay naging malupit.",
-                    "Nang ang kanyang apo ay magkasakit at hindi niya maipagamot dahil sa kakarampot na kita, nagdesisyon si Tata Selo na lumaban. Ang kanyang paghihimagsik ay hindi sa pamamagitan ng dahas, kundi sa pamamagitan ng pagtatanim ng binhi ng pagbabago sa isipan ng kanyang mga kapwa magsasaka. Sa kanyang simpleng paraan, ipinakita niya na ang tunay na pagbabago ay nagsisimula sa pagtayo para sa sariling karapatan."
-                ],
-                rating: 4.6,
-                reads: 1800,
-                published: "1968",
-                categories: ["Sosyo-politikal", "Realismo", "Literary"]
-            },
-            {
-                title: "Ang Kwento ni Mabuti",
-                author: "Genoveva Edroza Matute",
-                cover: "👩‍🏫",
-                description: "Isang kwento tungkol sa isang guro at ang kanyang mga aral na hindi lamang nakasulat sa pisara kundi nakaukit sa puso ng kanyang mga estudyante. Ang kwentong ito ay nagpapakita ng kahalagahan ng edukasyon at ang malalim na impluwensya ng isang dedikadong guro.",
-                chapters: [
-                    "Ang unang araw ng klase at ang pagpapakilala ni Mabuti ay puno ng misteryo. Hindi tulad ng ibang guro na nagpapakilala sa kanilang mga titulo at mga nakamit, si Mabuti ay nagsimula sa isang simpleng kwento tungkol sa isang batang tulad nila na nangangarap na magkaroon ng magandang buhay.",
-                    "Ang mga aral ni Mabuti ay hindi lamang nakasentro sa mga aklat. Siya ay nagturo ng mga leksyon sa buhay - ang halaga ng katapatan, ang lakas ng pag-asa, at ang kapangyarihan ng pagmamahal. Ang kanyang silid-aralan ay naging isang ligtas na lugar kung saan ang bawat estudyante ay nakadarama ng pagpapahalaga.",
-                    "Sa huling araw ng klase, ibinahagi ni Mabuti ang kanyang lihim - siya ay may malubhang sakit at hindi na makakapagturo sa susunod na taon. Ngunit sa halip na lungkot, ipinadama niya sa kanyang mga estudyante na ang kanyang mga aral ay mananatiling buhay sa kanilang mga puso at sa paraan ng kanilang pamumuhay. Ang tunay na pamana ng isang guro ay hindi ang mga marka kundi ang mga buhay na kanyang hinubog."
-                ],
-                rating: 4.9,
-                reads: 2300,
-                published: "1951",
-                categories: ["Edukasyon", "Inspirasyon", "Drama"]
-            }
-        ];
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav ul');
 
-        // DOM Elements
-        const storyList = document.getElementById("story-list");
-        const featuredStories = document.getElementById("featured-stories");
-        const bookmarkedStories = document.getElementById("bookmarked-stories");
-        const recentStories = document.getElementById("recent-stories");
-        const storyTitle = document.getElementById("story-title");
-        const storyAuthor = document.getElementById("story-author");
-        const storyContent = document.getElementById("story-content");
-        const prevBtn = document.getElementById("prev-btn");
-        const nextBtn = document.getElementById("next-btn");
-        const darkModeToggle = document.getElementById("dark-mode-toggle");
-        const nightModeToggle = document.getElementById("night-mode-toggle");
-        const nightReadingBtn = document.getElementById("night-reading");
-        const bookmarkBtn = document.getElementById("bookmark-btn");
-        const modalBookmarkBtn = document.getElementById("modal-bookmark");
-        const sidebarToggle = document.getElementById("sidebar-toggle");
-        const sidebar = document.getElementById("sidebar");
-        const overlay = document.getElementById("overlay");
-        const searchBar = document.getElementById("search-bar");
-        const chapterIndicator = document.getElementById("chapter-indicator");
-        const fontIncrease = document.getElementById("font-increase");
-        const fontDecrease = document.getElementById("font-decrease");
-        const fontReset = document.getElementById("font-reset");
-        const progressBar = document.getElementById("progress-bar");
-        const ttsBtn = document.getElementById("tts-btn");
-        const ttsControl = document.getElementById("tts-control");
-        const storyDetailsBtn = document.getElementById("story-details");
-        const storyModal = document.getElementById("story-modal");
-        const closeModalBtn = document.getElementById("close-modal");
-        const modalTitle = document.getElementById("modal-title");
-        const modalAuthor = document.getElementById("modal-author");
-        const modalDescription = document.getElementById("modal-description");
-        const startReadingBtn = document.getElementById("start-reading");
-        const modalCategories = document.getElementById("modal-categories");
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        });
 
-        // State
-        let currentStory = null;
-        let currentChapter = 0;
-        let bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
-        let recentReads = JSON.parse(localStorage.getItem("recentReads")) || [];
-        let isTTSPlaying = false;
-        let speechSynthesis = window.speechSynthesis;
-        let utterance = null;
-
-        // Initialize
-        async function init() {
-            renderStoryList();
-            renderFeaturedStories();
-            renderBookmarkedStories();
-            renderRecentStories();
-            loadProgress();
-            checkDarkModePreference();
-            setupEventListeners();
-            
-            // Check for TTS support
-            if (!speechSynthesis) {
-                ttsBtn.style.display = 'none';
-                ttsControl.style.display = 'none';
-            }
-        }
-
-        // Render story list
-        function renderStoryList(filter = "") {
-            storyList.innerHTML = "";
-            const searchTerm = filter.toLowerCase();
-            
-            const filteredStories = stories
-                .filter(story => 
-                    story.title.toLowerCase().includes(searchTerm) || 
-                    story.author.toLowerCase().includes(searchTerm) ||
-                    story.categories.some(cat => cat.toLowerCase().includes(searchTerm))
-                )
-                .sort((a, b) => b.reads - a.reads);
-            
-            if (filteredStories.length === 0) {
-                storyList.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fas fa-search"></i>
-                        <h3>Walang Natagpuang Kwento</h3>
-                        <p>Walang kwentong tumutugma sa iyong paghahanap.</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            filteredStories.forEach((story, index) => {
-                const storyCard = createStoryCard(story, index);
-                storyList.appendChild(storyCard);
-            });
-        }
-
-        // Render featured stories
-        function renderFeaturedStories() {
-            featuredStories.innerHTML = "";
-            const featured = stories.filter(story => story.featured)
-                                  .sort((a, b) => b.rating - a.rating);
-            
-            if (featured.length === 0) {
-                featuredStories.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fas fa-star"></i>
-                        <h3>Walang Trending na Kwento</h3>
-                        <p>Walang featured stories sa ngayon.</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            featured.slice(0, 3).forEach((story, index) => {
-                const storyCard = createStoryCard(story, index, true);
-                featuredStories.appendChild(storyCard);
-            });
-        }
-
-        // Render bookmarked stories
-        function renderBookmarkedStories() {
-            bookmarkedStories.innerHTML = "";
-            
-            if (bookmarks.length === 0) {
-                bookmarkedStories.innerHTML = `
-                    <div class="empty-state">
-                        <i class="far fa-bookmark"></i>
-                        <h3>Walang Bookmarked na Kwento</h3>
-                        <p>Mag-bookmark ng kwento para madaling mahanap.</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            // Get bookmarked stories from main list
-            const bookmarked = stories.filter(story => 
-                bookmarks.some(b => b.title === story.title)
-            ).sort((a, b) => {
-                const aIndex = bookmarks.findIndex(b => b.title === a.title);
-                const bIndex = bookmarks.findIndex(b => b.title === b.title);
-                return aIndex - bIndex;
-            });
-            
-            bookmarked.slice(0, 3).forEach((story, index) => {
-                const storyCard = createStoryCard(story, index);
-                bookmarkedStories.appendChild(storyCard);
-            });
-        }
-
-        // Render recently read stories
-        function renderRecentStories() {
-            recentStories.innerHTML = "";
-            
-            if (recentReads.length === 0) {
-                recentStories.innerHTML = `
-                    <div class="empty-state">
-                        <i class="far fa-clock"></i>
-                        <h3>Walang Kamakailang Basa</h3>
-                        <p>Ang mga nabasa mong kwento ay lilitaw dito.</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            // Get recent stories from main list
-            const recent = stories.filter(story => 
-                recentReads.some(r => r.title === story.title)
-            ).sort((a, b) => {
-                const aIndex = recentReads.findIndex(r => r.title === a.title);
-                const bIndex = recentReads.findIndex(r => r.title === b.title);
-                return aIndex - bIndex;
-            });
-            
-            recent.slice(0, 3).forEach((story, index) => {
-                const storyCard = createStoryCard(story, index);
-                recentStories.appendChild(storyCard);
-            });
-        }
-
-        // Create story card element
-        function createStoryCard(story, index, isFeatured = false) {
-            const storyCard = document.createElement("div");
-            storyCard.className = `story-card ${isFeatured ? 'featured' : ''} loading`;
-            storyCard.style.animationDelay = `${index * 0.1}s`;
-            
-            storyCard.innerHTML = `
-                <h3><span class="cover-icon">${story.cover}</span> ${story.title}</h3>
-                <p>${story.description.substring(0, 100)}${story.description.length > 100 ? '...' : ''}</p>
-                <div class="meta">
-                    <span>Ni ${story.author}</span>
-                    <span class="rating">${'★'.repeat(Math.floor(story.rating))}${'☆'.repeat(5 - Math.floor(story.rating))} (${story.reads})</span>
-                </div>
-            `;
-            
-            storyCard.addEventListener("click", () => {
-                loadStory(stories.findIndex(s => s.title === story.title));
-                closeSidebar();
-            });
-            
-            return storyCard;
-        }
-
-        // Load a story
-        function loadStory(storyIndex) {
-            currentStory = storyIndex;
-            currentChapter = 0;
-            updateReader();
-            
-            // Add to recently read
-            const story = stories[storyIndex];
-            const alreadyRead = recentReads.some(r => r.title === story.title);
-            
-            if (!alreadyRead) {
-                recentReads.unshift({
-                    title: story.title,
-                    timestamp: new Date().toISOString()
-                });
-                
-                // Keep only last 5 reads
-                if (recentReads.length > 5) {
-                    recentReads.pop();
-                }
-                
-                localStorage.setItem("recentReads", JSON.stringify(recentReads));
-                renderRecentStories();
-            }
-            
-            // Increment read count (for demo purposes)
-            stories[storyIndex].reads += 1;
-        }
-
-        // Update reader view
-        function updateReader() {
-            if (currentStory === null || currentStory >= stories.length) {
-                storyTitle.textContent = "Pumili ng Kwento";
-                storyAuthor.textContent = "";
-                storyContent.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fas fa-book-open"></i>
-                        <h3>Walang Kwentong Napili</h3>
-                        <p>Pumili ng kwento mula sa menu upang simulan ang pagbabasa.</p>
-                    </div>
-                `;
-                prevBtn.disabled = true;
-                nextBtn.disabled = true;
-                chapterIndicator.textContent = "-/-";
-                bookmarkBtn.innerHTML = '<i class="far fa-bookmark"></i>';
-                progressBar.style.width = '0%';
-                return;
-            }
-
-            const story = stories[currentStory];
-            storyTitle.textContent = story.title;
-            storyAuthor.textContent = `Ni ${story.author}`;
-            
-            // Format content with paragraphs
-            const chapterContent = story.chapters[currentChapter];
-            const paragraphs = chapterContent.split('\n').filter(p => p.trim() !== '');
-            
-            let contentHTML = '';
-            paragraphs.forEach(p => {
-                contentHTML += `<p>${p}</p>`;
-            });
-            
-            storyContent.innerHTML = contentHTML;
-            
-            // Update navigation
-            prevBtn.disabled = currentChapter === 0;
-            nextBtn.disabled = currentChapter === story.chapters.length - 1;
-            chapterIndicator.textContent = `${currentChapter + 1}/${story.chapters.length}`;
-            
-            // Update progress
-            const progress = ((currentChapter + 1) / story.chapters.length) * 100;
-            progressBar.style.width = `${progress}%`;
-            
-            // Update bookmark status
-            checkBookmark();
-            
-            // Save progress
-            saveProgress();
-            
-            // Stop TTS if playing
-            if (isTTSPlaying) {
-                stopTTS();
-            }
-            
-            // Scroll to top of content
-            storyContent.scrollTo(0, 0);
-        }
-
-        // Navigation functions
-        function goToPrevChapter() {
-            if (currentStory !== null && currentChapter > 0) {
-                currentChapter--;
-                updateReader();
-            }
-        }
-
-        function goToNextChapter() {
-            if (currentStory !== null && currentChapter < stories[currentStory].chapters.length - 1) {
-                currentChapter++;
-                updateReader();
-            }
-        }
-
-        // Bookmark functions
-        function checkBookmark() {
-            if (currentStory === null) return;
-            
-            const story = stories[currentStory];
-            const isBookmarked = bookmarks.some(b => b.title === story.title);
-            
-            bookmarkBtn.innerHTML = isBookmarked 
-                ? '<i class="fas fa-bookmark"></i>' 
-                : '<i class="far fa-bookmark"></i>';
-                
-            modalBookmarkBtn.innerHTML = isBookmarked 
-                ? '<i class="fas fa-bookmark"></i> Bookmarked' 
-                : '<i class="far fa-bookmark"></i> Bookmark';
-        }
-
-        function toggleBookmark() {
-            if (currentStory === null) return;
-            
-            const story = stories[currentStory];
-            const bookmarkIndex = bookmarks.findIndex(b => b.title === story.title);
-            
-            if (bookmarkIndex === -1) {
-                bookmarks.push({
-                    title: story.title,
-                    chapter: currentChapter,
-                    timestamp: new Date().toISOString()
-                });
+        // Responsive nav adjustment
+        function adjustNav() {
+            if (window.innerWidth <= 768) {
+                nav.style.display = 'none';
+                mobileMenuBtn.style.display = 'block';
             } else {
-                bookmarks.splice(bookmarkIndex, 1);
-            }
-            
-            localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
-            checkBookmark();
-            renderBookmarkedStories();
-        }
-
-        // Theme functions
-        function toggleDarkMode() {
-            document.body.classList.remove("night-mode");
-            document.body.classList.toggle("dark-mode");
-            const isDark = document.body.classList.contains("dark-mode");
-            localStorage.setItem("darkMode", isDark);
-            localStorage.setItem("nightMode", false);
-            
-            // Update night reading button
-            nightReadingBtn.innerHTML = '<i class="fas fa-bed"></i> Night Mode';
-            
-            // Update toggle buttons
-            darkModeToggle.innerHTML = isDark 
-                ? '<i class="fas fa-sun"></i> <span class="hide-on-mobile">Light</span>' 
-                : '<i class="fas fa-adjust"></i> <span class="hide-on-mobile">Dark</span>';
-        }
-
-        function toggleNightMode() {
-            document.body.classList.remove("dark-mode");
-            document.body.classList.toggle("night-mode");
-            const isNight = document.body.classList.contains("night-mode");
-            localStorage.setItem("nightMode", isNight);
-            localStorage.setItem("darkMode", false);
-            
-            // Update night reading button text
-            nightReadingBtn.innerHTML = isNight 
-                ? '<i class="fas fa-sun"></i> Day Mode' 
-                : '<i class="fas fa-bed"></i> Night Mode';
-                
-            // Update toggle buttons
-            nightModeToggle.innerHTML = isNight 
-                ? '<i class="fas fa-adjust"></i> <span class="hide-on-mobile">Dark</span>' 
-                : '<i class="fas fa-moon"></i> <span class="hide-on-mobile">Night</span>';
-        }
-
-        function checkDarkModePreference() {
-            const isDark = localStorage.getItem("darkMode") === "true";
-            const isNight = localStorage.getItem("nightMode") === "true";
-            
-            if (isNight) {
-                document.body.classList.add("night-mode");
-                nightReadingBtn.innerHTML = '<i class="fas fa-sun"></i> Day Mode';
-                nightModeToggle.innerHTML = '<i class="fas fa-adjust"></i> <span class="hide-on-mobile">Dark</span>';
-            } else if (isDark) {
-                document.body.classList.add("dark-mode");
-                darkModeToggle.innerHTML = '<i class="fas fa-sun"></i> <span class="hide-on-mobile">Light</span>';
+                nav.style.display = 'flex';
+                mobileMenuBtn.style.display = 'none';
             }
         }
 
-        // Sidebar functions
-        function toggleSidebar() {
-            sidebar.classList.toggle("active");
-            overlay.classList.toggle("active");
-            document.body.classList.toggle("no-scroll");
-        }
-
-        function closeSidebar() {
-            sidebar.classList.remove("active");
-            overlay.classList.remove("active");
-            document.body.classList.remove("no-scroll");
-        }
-
-        // Font size adjustment
-        function adjustFontSize(direction) {
-            const content = storyContent;
-            let currentSize = parseInt(window.getComputedStyle(content).fontSize);
-            
-            if (direction === "increase") {
-                currentSize = Math.min(24, currentSize + 1);
-            } else if (direction === "decrease") {
-                currentSize = Math.max(14, currentSize - 1);
-            } else { // reset
-                currentSize = 18;
-            }
-            
-            content.style.fontSize = `${currentSize}px`;
-            localStorage.setItem("fontSize", currentSize);
-        }
-
-        // Text-to-Speech functions
-        function toggleTTS() {
-            if (isTTSPlaying) {
-                stopTTS();
-            } else {
-                startTTS();
-            }
-        }
-
-        function startTTS() {
-            if (currentStory === null) return;
-            
-            const story = stories[currentStory];
-            const text = `${story.title}, Chapter ${currentChapter + 1}. ${story.chapters[currentChapter]}`;
-            
-            utterance = new SpeechSynthesisUtterance(text);
-            utterance.lang = 'fil-PH'; // Filipino language
-            utterance.rate = 1;
-            utterance.pitch = 1;
-            
-            utterance.onend = function() {
-                isTTSPlaying = false;
-                ttsBtn.innerHTML = '<i class="fas fa-volume-up"></i> <span class="hide-on-mobile">TTS</span>';
-                ttsControl.innerHTML = '<i class="fas fa-play"></i> <span>Basahin</span>';
-            };
-            
-            speechSynthesis.speak(utterance);
-            isTTSPlaying = true;
-            ttsBtn.innerHTML = '<i class="fas fa-volume-mute"></i> <span class="hide-on-mobile">TTS</span>';
-            ttsControl.innerHTML = '<i class="fas fa-stop"></i> <span>Itigil</span>';
-        }
-
-        function stopTTS() {
-            if (speechSynthesis.speaking) {
-                speechSynthesis.cancel();
-            }
-            isTTSPlaying = false;
-            ttsBtn.innerHTML = '<i class="fas fa-volume-up"></i> <span class="hide-on-mobile">TTS</span>';
-            ttsControl.innerHTML = '<i class="fas fa-play"></i> <span>Basahin</span>';
-        }
-
-        // Story details modal
-        function showStoryDetails() {
-            if (currentStory === null) return;
-            
-            const story = stories[currentStory];
-            modalTitle.textContent = story.title;
-            modalAuthor.textContent = `Ni ${story.author}`;
-            modalDescription.textContent = story.description;
-            
-            // Update categories
-            modalCategories.innerHTML = '';
-            story.categories.forEach(cat => {
-                const category = document.createElement("span");
-                category.className = "category";
-                category.textContent = cat;
-                modalCategories.appendChild(category);
-            });
-            
-            // Update bookmark button
-            const isBookmarked = bookmarks.some(b => b.title === story.title);
-            modalBookmarkBtn.innerHTML = isBookmarked 
-                ? '<i class="fas fa-bookmark"></i> Bookmarked' 
-                : '<i class="far fa-bookmark"></i> Bookmark';
-            
-            storyModal.classList.add("active");
-            document.body.classList.add("no-scroll");
-        }
-
-        function closeStoryDetails() {
-            storyModal.classList.remove("active");
-            document.body.classList.remove("no-scroll");
-        }
-
-        // Save/load progress
-        function saveProgress() {
-            if (currentStory !== null) {
-                localStorage.setItem("currentStory", currentStory);
-                localStorage.setItem("currentChapter", currentChapter);
-            }
-        }
-
-        function loadProgress() {
-            const savedStory = localStorage.getItem("currentStory");
-            const savedChapter = localStorage.getItem("currentChapter");
-            const savedFontSize = localStorage.getItem("fontSize");
-            
-            if (savedStory !== null && savedChapter !== null) {
-                currentStory = parseInt(savedStory);
-                currentChapter = parseInt(savedChapter);
-                
-                // Validate saved progress
-                if (currentStory >= stories.length) {
-                    currentStory = null;
-                    currentChapter = 0;
-                    return;
-                }
-                
-                if (currentChapter >= stories[currentStory].chapters.length) {
-                    currentChapter = stories[currentStory].chapters.length - 1;
-                }
-            }
-            
-            if (savedFontSize) {
-                storyContent.style.fontSize = `${savedFontSize}px`;
-            }
-            
-            updateReader();
-        }
-
-        // Event listeners
-        function setupEventListeners() {
-            prevBtn.addEventListener("click", goToPrevChapter);
-            nextBtn.addEventListener("click", goToNextChapter);
-            darkModeToggle.addEventListener("click", toggleDarkMode);
-            nightModeToggle.addEventListener("click", toggleNightMode);
-            nightReadingBtn.addEventListener("click", toggleNightMode);
-            bookmarkBtn.addEventListener("click", toggleBookmark);
-            modalBookmarkBtn.addEventListener("click", toggleBookmark);
-            sidebarToggle.addEventListener("click", toggleSidebar);
-            overlay.addEventListener("click", closeSidebar);
-            
-            searchBar.addEventListener("input", (e) => {
-                renderStoryList(e.target.value);
-            });
-            
-            fontIncrease.addEventListener("click", () => adjustFontSize("increase"));
-            fontDecrease.addEventListener("click", () => adjustFontSize("decrease"));
-            fontReset.addEventListener("click", () => adjustFontSize("reset"));
-            
-            // TTS controls
-            if (speechSynthesis) {
-                ttsBtn.addEventListener("click", toggleTTS);
-                ttsControl.addEventListener("click", toggleTTS);
-            }
-            
-            // Story details
-            storyDetailsBtn.addEventListener("click", showStoryDetails);
-            closeModalBtn.addEventListener("click", closeStoryDetails);
-            startReadingBtn.addEventListener("click", closeStoryDetails);
-            
-            // Keyboard navigation
-            document.addEventListener("keydown", (e) => {
-                if (e.key === "ArrowLeft") goToPrevChapter();
-                if (e.key === "ArrowRight") goToNextChapter();
-                if (e.key === "Escape") {
-                    closeStoryDetails();
-                    closeSidebar();
-                }
-            });
-            
-            // Prevent body scroll when modal or sidebar is open
-            document.addEventListener('touchmove', function(e) {
-                if (document.body.classList.contains('no-scroll')) {
-                    e.preventDefault();
-                }
-            }, { passive: false });
-        }
-
-        
-        // Initialize the app
-        document.addEventListener('DOMContentLoaded', init);
+        window.addEventListener('resize', adjustNav);
+        adjustNav(); // Initialize
     </script>
 </body>
 </html>
