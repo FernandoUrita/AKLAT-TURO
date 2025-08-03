@@ -44,6 +44,25 @@
             text-align: center;
             color: white;
             margin-bottom: 3rem;
+            position: relative; /* Para ma-position ang logo relative dito */
+        }
+
+        .hero-logo {        
+            position: absolute;
+            top: 20px;       /* Distansya mula sa top */
+            right: 20px;      /* Distansya mula sa left (pinapalitan ang 'right') */
+            width: 120px;     /* Adjust size ng logo */
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+            z-index: 1;      /* Siguraduhin nasa ibabaw ng background */
+        }
+
+        /* Optional: Responsive adjustment */
+        @media (max-width: 768px) {
+            .hero-logo {
+                width: 60px;
+                top: 15px;
+                left: 15px;  /* Adjust din para sa mobile */
+            }
         }
 
         .hero-content {
@@ -51,6 +70,7 @@
             margin: 0 auto;
             padding: 0 1rem;
         }
+
 
         .hero h1 {
             font-size: 3rem;
@@ -535,8 +555,11 @@
             <!-- Tuklasin Content -->
             <div id="tuklasin-content" class="content px-3 py-4">
                 <section class="hero">
+                    <img src="image/read.png" class="hero-logo" alt="Aklat-Turo Logo">
                     <div class="hero-content">
-                        <h1><span class="initial-a">A</span>KLAT-TURO</h1>
+                        <h1>
+                            <span class="initial-a">A</span>KLAT-TURO
+                        </h1>
                         <p>Ang Aklat-Turo ay isang interaktibong plataporma ng mga piling maiikling kwento at kaugnay na gawain. Layunin nitong pasiglahin ang pag-unawa at pagmamahal sa panitikang Pilipino sa pamamagitan ng aktibong pagbasa at malalim na pagsusuri. Dito, bawat kwento’y nagbibigay-aral, at bawat gawain ay gabay sa pagkatuto. Halina’t tuklasin ang yaman ng mga akda!</p>
                         <a href="kwento.html" class="btn btn-custom">basahin natin</a>
                     </div>
@@ -801,7 +824,7 @@
                 <div class="modal-body p-4">
                     <div class="row">
                         <div class="col-md-5">
-                            <img src="image/sugat.jpg" class="img-fluid rounded mb-3" alt="Ang Ama">
+                            <img src="image/ama.jpg" class="img-fluid rounded mb-3" alt="Ang Ama">
                             <div class="story-meta bg-light-brown p-3 rounded">
                                 <h6 class="text-brown"><i class="fas fa-info-circle me-2"></i>Mga Detalye</h6>
                                 <ul class="list-unstyled">
@@ -854,7 +877,7 @@
                 <div class="modal-body p-4">
                     <div class="row">
                         <div class="col-md-5">
-                            <img src="image/mili.jpg" class="img-fluid rounded mb-3" alt="Ang Ama">
+                            <img src="image/ama.jpg" class="img-fluid rounded mb-3" alt="Ang Ama">
                             <div class="story-meta bg-light-brown p-3 rounded">
                                 <h6 class="text-brown"><i class="fas fa-info-circle me-2"></i>Mga Detalye</h6>
                                 <ul class="list-unstyled">
@@ -907,7 +930,7 @@
                 <div class="modal-body p-4">
                     <div class="row">
                         <div class="col-md-5">
-                            <img src="image/selo.jpg" class="img-fluid rounded mb-3" alt="Ang Ama">
+                            <img src="image/ama.jpg" class="img-fluid rounded mb-3" alt="Ang Ama">
                             <div class="story-meta bg-light-brown p-3 rounded">
                                 <h6 class="text-brown"><i class="fas fa-info-circle me-2"></i>Mga Detalye</h6>
                                 <ul class="list-unstyled">
@@ -997,5 +1020,3 @@
 </body>
 
 </html>
-
-
