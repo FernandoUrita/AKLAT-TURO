@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamong Pangkaalam</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/image/read.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/image/read.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
+    <style>
+        :root {
+            --primary-brown: #8B6B4D;
+            --light-brown: #D2B48C;
+            --lighter-brown: #F5E7D9;
+            --dark-brown: #5D4037;
+            --text-color: #333;
+            --light-text: #f9f9f9;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        a {
+            cursor: pointer;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-custom {
+            display: inline-block;
+            background-color: var(--primary-brown);
+            color: var(--light-text);
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            border: none;
+        }
+
+        .btn-custom:hover {
+            background-color: var(--dark-brown);
+            color: var(--light-text);
+        }
+
+        /* Quiz Styles */
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .card {
+            border: 1px solid var(--light-brown);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        .form-check {
+            margin-bottom: 0.5rem;
+        }
+
+        .form-check-input {
+            margin-right: 0.5rem;
+        }
+
+        .alert {
+            margin-top: 1rem;
+        }
+
+        .progress {
+            height: 10px;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar {
+            background-color: var(--primary-brown);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .hero {
+                height: 30vh;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <aside id="sidebar" class="js-sidebar">
+            <!-- Content For Sidebar -->
+            <div class="h-100">
+                <div class="sidebar-logo">
+                    <a href="#">Aklat-Turo</a>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-header">
+                        Nilalaman
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="/index.html" class="sidebar-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                                <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783"/>
+                            </svg>
+                            Tuklasin
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#pages" data-bs-toggle="collapse"
+                            aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                                <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z"/>
+                            </svg>
+                            Maikling Kwento
+                        </a>
+                        <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="kwento/ang-ama.html" class="sidebar-link">Ang Ama</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="kwento/mili.html" class="sidebar-link">Miliminas: Taong 0069</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="kwento/psp.html" class="sidebar-link">Paalam sa Pagkabata</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="kwento/selo.html" class="sidebar-link">Tata Selo</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="kwento/sugat.html" class="sidebar-link">Walang Sugat</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#bib" data-bs-toggle="collapse"
+                            aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-video" viewBox="0 0 16 16">
+                              <path d="M8 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
+                              <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm10.798 11c-.453-1.27-1.76-3-4.798-3-3.037 0-4.345 1.73-4.798 3H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1z"/>
+                            </svg>
+                            Bibliyograpiya
+                        </a>
+                        <ul id="bib" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="mauro.html" class="sidebar-link">Mauro R. Avena</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="nazareno.html" class="sidebar-link">Nazareno D. Bas</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="rogelio.html" class="sidebar-link">Rogelio Sikat</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="ruby.html" class="sidebar-link">Nilo P. Pamonag</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="severino.html" class="sidebar-link">Severino Reyes</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-header">
+                        Subukin Natin
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-boxes" viewBox="0 0 16 16">
+                              <path d="M7.752.066a.5.5 0 0 1 .496 0l3.75 2.143a.5.5 0 0 1 .252.434v3.995l3.498 2A.5.5 0 0 1 16 9.07v4.286a.5.5 0 0 1-.252.434l-3.75 2.143a.5.5 0 0 1-.496 0l-3.502-2-3.502 2.001a.5.5 0 0 1-.496 0l-3.75-2.143A.5.5 0 0 1 0 13.357V9.071a.5.5 0 0 1 .252-.434L3.75 6.638V2.643a.5.5 0 0 1 .252-.434zM4.25 7.504 1.508 9.071l2.742 1.567 2.742-1.567zM7.5 9.933l-2.75 1.571v3.134l2.75-1.571zm1 3.134 2.75 1.571v-3.134L8.5 9.933zm.508-3.996 2.742 1.567 2.742-1.567-2.742-1.567zm2.242-2.433V3.504L8.5 5.076V8.21zM7.5 8.21V5.076L4.75 3.504v3.134zM5.258 2.643 8 4.21l2.742-1.567L8 1.076zM15 9.933l-2.75 1.571v3.134L15 13.067zM3.75 14.638v-3.134L1 9.933v3.134z"/>
+                            </svg>
+                            Title with a twist
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-puzzle" viewBox="0 0 16 16">
+                              <path d="M3.112 3.645A1.5 1.5 0 0 1 4.605 2H7a.5.5 0 0 1 .5.5v.382c0 .696-.497 1.182-.872 1.469a.5.5 0 0 0-.115.118l-.012.025L6.5 4.5v.003l.003.01q.005.015.036.053a.9.9 0 0 0 .27.194C7.09 4.9 7.51 5 8 5c.492 0 .912-.1 1.19-.24a.9.9 0 0 0 .271-.194.2.2 0 0 0 .039-.063v-.009l-.012-.025a.5.5 0 0 0-.115-.118c-.375-.287-.872-.773-.872-1.469V2.5A.5.5 0 0 1 9 2h2.395a1.5 1.5 0 0 1 1.493 1.645L12.645 6.5h.237c.195 0 .42-.147.675-.48.21-.274.528-.52.943-.52.568 0 .947.447 1.154.862C15.877 6.807 16 7.387 16 8s-.123 1.193-.346 1.638c-.207.415-.586.862-1.154.862-.415 0-.733-.246-.943-.52-.255-.333-.48-.48-.675-.48h-.237l.243 2.855A1.5 1.5 0 0 1 11.395 14H9a.5.5 0 0 1-.5-.5v-.382c0-.696.497-1.182.872-1.469a.5.5 0 0 0 .115-.118l.012-.025.001-.006v-.003a.2.2 0 0 0-.039-.064.9.9 0 0 0-.27-.193C8.91 11.1 8.49 11 8 11s-.912.1-1.19.24a.9.9 0 0 0-.271.194.2.2 0 0 0-.039.063v.003l.001.006.012.025c.016.027.05.068.115.118.375.287.872.773.872 1.469v.382a.5.5 0 0 1-.5.5H4.605a1.5 1.5 0 0 1-1.493-1.645L3.356 9.5h-.238c-.195 0-.42.147-.675.48-.21.274-.528.52-.943.52-.568 0-.947-.447-1.154-.862C.123 9.193 0 8.613 0 8s.123-1.193.346-1.638C.553 5.947.932 5.5 1.5 5.5c.415 0 .733.246.943.52.255.333.48.48.675.48h.238zM4.605 3a.5.5 0 0 0-.498.55l.001.007.29 3.4A.5.5 0 0 1 3.9 7.5h-.782c-.696 0-1.182-.497-1.469-.872a.5.5 0 0 0-.118-.115l-.025-.012L1.5 6.5h-.003a.2.2 0 0 0-.064.039.9.9 0 0 0-.193.27C1.1 7.09 1 7.51 1 8s.1.912.24 1.19c.07.14.14.225.194.271a.2.2 0 0 0 .063.039H1.5l.006-.001.025-.012a.5.5 0 0 0 .118-.115c.287-.375.773-.872 1.469-.872H3.9a.5.5 0 0 1 .498.542l-.29 3.408a.5.5 0 0 0 .497.55h1.878c-.048-.166-.195-.352-.463-.557-.274-.21-.52-.528-.52-.943 0-.568.447-.947.862-1.154C6.807 10.123 7.387 10 8 10s1.193.123 1.638.346c.415.207.862.586.862 1.154 0 .415-.246.733-.52.943-.268.205-.415.39-.463.557h1.878a.5.5 0 0 0 .498-.55l-.001-.007-.29-3.4A.5.5 0 0 1 12.1 8.5h.782c.696 0 1.182.497 1.469.872.05.065.091.099.118.115l.025.012.006.001h.003a.2.2 0 0 0 .064-.039.9.9 0 0 0 .193-.27c.14-.28.24-.7.24-1.191s-.1-.912-.24-1.19a.9.9 0 0 0-.194-.271.2.2 0 0 0-.063-.039H14.5l-.006.001-.025.012a.5.5 0 0 0-.118.115c-.287.375-.773.872-1.469.872H12.1a.5.5 0 0 1-.498-.543l.29-3.407a.5.5 0 0 0-.497-.55H9.517c.048.166.195.352.463.557.274.21.52.528.52.943 0 .568-.447.947-.862 1.154C9.193 5.877 8.613 6 8 6s-1.193-.123-1.638-.346C5.947 5.447 5.5 5.068 5.5 4.5c0-.415.246-.733.52-.943.268-.205.415-.39.463-.557z"/>
+                            </svg>
+                            CrossWord Puzzle
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search-heart" viewBox="0 0 16 16">
+                              <path d="M6.5 4.482c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018"/>
+                              <path d="M13 6.5a6.47 6.47 0 0 1-1.258 3.844q.06.044.115.098l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1-.1-.115h.002A6.5 6.5 0 1 1 13 6.5M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11"/>
+                            </svg>
+                            Hula-Whoop
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="pangkaalam/index.html" class="sidebar-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-award" viewBox="0 0 16 16">
+                              <path d="M9.669.864 8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68zm1.196 1.193.684 1.365 1.086 1.072L12.387 6l.248 1.506-1.086 1.072-.684 1.365-1.51.229L8 10.874l-1.355-.702-1.51-.229-.684-1.365-1.086-1.072L3.614 6l-.25-1.506 1.087-1.072.684-1.365 1.51-.229L8 1.126l1.356.702z"/>
+                              <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1z"/>
+                            </svg>
+                            Hamong Pangkaalam
+                        </a>
+                    </li>
+                    <li class="sidebar-header">
+                        Alamin Natin
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
+                              <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z"/>
+                              <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8m0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5"/>
+                            </svg>
+                            Bokabularyo
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="about.html" class="sidebar-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-person" viewBox="0 0 16 16">
+                              <path d="M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                              <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2M9.5 3A1.5 1.5 0 0 0 11 4.5h2v9.255S12 12 8 12s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h5.5z"/>
+                            </svg>
+                            About US
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <div class="main">
+            <nav class="navbar navbar-expand px-3 border-bottom">
+                <button class="btn" id="sidebar-toggle" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>               
+            </nav>
+            
+            <!-- Quiz Content -->
+            <main class="content px-3 py-4">
+                <div class="container-fluid">
+                    <!-- User Info Form -->
+                    <div id="user-info-form" class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="card-title">Filipino Literature Master Quiz</h3>
+                            <form id="user-info">
+                                <div class="mb-3">          
+                                    <label class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="user-name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="user-email" required>
+                                </div>
+                                <button type="submit" class="btn btn-custom">Start Quiz</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Quiz Container (Hidden Initially) -->
+                    <div id="quiz-container" class="card" style="display:none;">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 id="quiz-title" class="mb-0">Filipino Literature Master Quiz</h5>
+                                <div id="progress-text">Question 1 of 50</div>
+                            </div>
+                            <div class="progress mb-3">
+                                <div id="quiz-progress" class="progress-bar" style="width: 2%"></div>
+                            </div>
+                            <div id="quiz-questions" class="mb-4"></div>
+                        </div>
+                    </div>
+
+                    <!-- Results Container (Hidden Initially) -->
+                    <div id="results-container" class="card" style="display:none;">
+                        <div class="card-body">
+                            <h5 class="card-title">Your Results</h5>
+                            <div id="results-text"></div>
+                            <div id="email-success" class="alert alert-success mt-3" style="display:none;"></div>
+                            <button id="retake-btn" class="btn btn-custom mt-3">Retake Quiz</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/script.js"></script>
+    <script>
+    // Initialize EmailJS
+    emailjs.init("a2I4naDs2s5Dy6cyk");
+
+    // Combined Quiz Data (50 questions)
+    const quizData = [
+        // ANG AMA (Questions 1-10)
+        {
+            story: "Ang Ama",
+            question: "1. Ilang anak mayroon ang pamilya sa kwento?",
+            options: ["Lima", "Apat", "Pitong anak", "Anim"],
+            answer: 3 // Index of correct answer (0-based)
+        },
+        {
+            story: "Ang Ama",
+            question: "2. Ano ang pangunahing bisyo ng ama?",
+            options: ["Sugal", "Pag-inom ng kape", "Pagsusugal at alak", "Pag-inom ng alak"],
+            answer: 3
+        },
+        {
+            story: "Ang Ama",
+            question: "3. Ano ang dalawang emosyon na nararamdaman ng mga bata tuwing hinihintay nila ang ama?",
+            options: ["Takot at pananabik", "Takot at galit", "Sorpresa at ligaya", "Lungkot at awa"],
+            answer: 0
+        },
+        {
+            story: "Ang Ama",
+            question: "4. Ano ang inuuwing pagkain ng ama paminsan-minsan?",
+            options: ["Sabaw ng pansit", "Supot ng pansit guisado", "Tinapay at itlog", "Kanin at gulay"],
+            answer: 1
+        },
+        {
+            story: "Ang Ama",
+            question: "5. Sino ang pinakabatang anak na napatay ng ama?",
+            options: ["Anak na lalaki", "Anak na babae, si Mui Mui", "Anak na kambal", "Nakababatang anak"],
+            answer: 1
+        },
+        {
+            story: "Ang Ama",
+            question: "6. Ano ang naging reaksiyon ng ama matapos mamatay si Mui Mui?",
+            options: ["Nagpakalayo-layo", "Hinabol ang mga anak", "Nagsisi at naging mabuting ama", "Nagbigay ng pera sa kanila"],
+            answer: 2
+        },
+        {
+            story: "Ang Ama",
+            question: "7. Saan ipinakita ng ama ang pagmamahal niya kay Mui Mui matapos itong mamatay?",
+            options: ["Nag-alay ng regalo sa bahay", "Naglibang sa ibang bayan", "Nagbigay ng pera sa pamilya", "Nagdala ng pagkain sa libingan"],
+            answer: 3
+        },
+        {
+            story: "Ang Ama",
+            question: "8. Ano ang tunggalian sa maikling kuwentong ito?",
+            options: ["Tao laban sa kalikasan", "Tao laban sa lipunan", "Tao laban sa sarili (guilt/sisisi)", "Tao laban sa hayop"],
+            answer: 2
+        },
+        {
+            story: "Ang Ama",
+            question: "9.Ano ang naging dahilan kung bakit napatay ng ama si Mui Mui?",
+            options: ["Hindi sumunod sa utos", "Nahuli sa pagkain", "Tumangging kumuha ng tubig", "Naasar sa tuloy-tuloy na halinghing ni Mui Mui"],
+            answer: 3
+        },
+        {
+            story: "Ang Ama",
+            question: "10. Paano nagwakas ang kwento?",
+            options: ["Nagsisi ang ama at nangangakong magbabago", "Namatay ang ama", "Siningil ang anak ng utang", "Umalis ang ama sa pamilya"],
+            answer: 0
+        },
+
+        // PAALAM SA PAGKABATA (Questions 11-20)
+        {
+            story: "Paalam sa Pagkabata",
+            question: "11. Ano ang pangunahing tanong na bumabalot sa isip ni Celso?",
+            options: ["Bakit tahimik ang bahay", "Bakit umiiyak si Isidra", "Namatay ang ama", "Nagsisi ang ama at nangangakong magbabago"],
+            answer: 1
+        },
+        {
+            story: "Paalam sa Pagkabata",
+            question: "2. Ano ang pangunahing bisyo ng ama?",
+            options: ["Sugal", "Pag-inom ng kape", "Pagsusugal at alak", "Pag-inom ng alak"],
+            answer: 3
+        },
+        {
+            story: "Paalam sa Pagkabata",
+            question: "3. Ano ang dalawang emosyon na nararamdaman ng mga bata tuwing hinihintay nila ang ama?",
+            options: ["Takot at pananabik", "Takot at galit", "Sorpresa at ligaya", "Lungkot at awa"],
+            answer: 0
+        },
+        {
+            story: "Paalam sa Pagkabata",
+            question: "4. Ano ang inuuwing pagkain ng ama paminsan-minsan?",
+            options: ["Sabaw ng pansit", "Supot ng pansit guisado", "Tinapay at itlog", "Kanin at gulay"],
+            answer: 1
+        },
+        {
+            story: "Paalam sa Pagkabata",
+            question: "5. Sino ang pinakabatang anak na napatay ng ama?",
+            options: ["Anak na lalaki", "Anak na babae, si Mui Mui", "Anak na kambal", "Nakababatang anak"],
+            answer: 1
+        },
+        {
+            story: "Paalam sa Pagkabata",
+            question: "6. Ano ang naging reaksiyon ng ama matapos mamatay si Mui Mui?",
+            options: ["Nagpakalayo-layo", "Hinabol ang mga anak", "Nagsisi at naging mabuting ama", "Nagbigay ng pera sa kanila"],
+            answer: 2
+        },
+        {
+            story: "Paalam sa Pagkabata",
+            question: "7. Saan ipinakita ng ama ang pagmamahal niya kay Mui Mui matapos itong mamatay?",
+            options: ["Nag-alay ng regalo sa bahay", "Naglibang sa ibang bayan", "Nagbigay ng pera sa pamilya", "Nagdala ng pagkain sa libingan"],
+            answer: 3
+        },
+        {
+            story: "Paalam sa Pagkabata",
+            question: "8. Ano ang tunggalian sa maikling kuwentong ito?",
+            options: ["Tao laban sa kalikasan", "Tao laban sa lipunan", "Tao laban sa sarili (guilt/sisisi)", "Tao laban sa hayop"],
+            answer: 2
+        },
+        {
+            story: "Paalam sa Pagkabata",
+            question: "9.Ano ang naging dahilan kung bakit napatay ng ama si Mui Mui?",
+            options: ["Hindi sumunod sa utos", "Nahuli sa pagkain", "Tumangging kumuha ng tubig", "Naasar sa tuloy-tuloy na halinghing ni Mui Mui"],
+            answer: 3
+        },
+        {
+            story: "Paalam sa Pagkabata",
+            question: "10. Paano nagwakas ang kwento?",
+            options: ["Nagsisi ang ama at nangangakong magbabago", "Namatay ang ama", "Siningil ang anak ng utang", "Umalis ang ama sa pamilya"],
+            answer: 0
+        },
+
+        // MILIMINAS (Questions 21-30)
+        {
+            story: "Miliminas",
+            question: "11. Ano ang pangunahing tanong na bumabalot sa isip ni Celso?",
+            options: ["Bakit tahimik ang bahay", "Bakit umiiyak si Isidra", "...", "..."],
+            answer: 1
+        },
+        {
+            story: "Miliminas",
+            question: "2. Ano ang pangunahing bisyo ng ama?",
+            options: ["Sugal", "Pag-inom ng kape", "Pagsusugal at alak", "Pag-inom ng alak"],
+            answer: 3
+        },
+        {
+            story: "Miliminas",
+            question: "3. Ano ang dalawang emosyon na nararamdaman ng mga bata tuwing hinihintay nila ang ama?",
+            options: ["Takot at pananabik", "Takot at galit", "Sorpresa at ligaya", "Lungkot at awa"],
+            answer: 0
+        },
+        {
+            story: "Miliminas",
+            question: "4. Ano ang inuuwing pagkain ng ama paminsan-minsan?",
+            options: ["Sabaw ng pansit", "Supot ng pansit guisado", "Tinapay at itlog", "Kanin at gulay"],
+            answer: 1
+        },
+        {
+            story: "Miliminas",
+            question: "5. Sino ang pinakabatang anak na napatay ng ama?",
+            options: ["Anak na lalaki", "Anak na babae, si Mui Mui", "Anak na kambal", "Nakababatang anak"],
+            answer: 1
+        },
+        {
+            story: "Miliminas",
+            question: "6. Ano ang naging reaksiyon ng ama matapos mamatay si Mui Mui?",
+            options: ["Nagpakalayo-layo", "Hinabol ang mga anak", "Nagsisi at naging mabuting ama", "Nagbigay ng pera sa kanila"],
+            answer: 2
+        },
+        {
+            story: "Miliminas",
+            question: "7. Saan ipinakita ng ama ang pagmamahal niya kay Mui Mui matapos itong mamatay?",
+            options: ["Nag-alay ng regalo sa bahay", "Naglibang sa ibang bayan", "Nagbigay ng pera sa pamilya", "Nagdala ng pagkain sa libingan"],
+            answer: 3
+        },
+        {
+            story: "Miliminas",
+            question: "8. Ano ang tunggalian sa maikling kuwentong ito?",
+            options: ["Tao laban sa kalikasan", "Tao laban sa lipunan", "Tao laban sa sarili (guilt/sisisi)", "Tao laban sa hayop"],
+            answer: 2
+        },
+        {
+            story: "Miliminas",
+            question: "9.Ano ang naging dahilan kung bakit napatay ng ama si Mui Mui?",
+            options: ["Hindi sumunod sa utos", "Nahuli sa pagkain", "Tumangging kumuha ng tubig", "Naasar sa tuloy-tuloy na halinghing ni Mui Mui"],
+            answer: 3
+        },
+        {
+            story: "Miliminas",
+            question: "10. Paano nagwakas ang kwento?",
+            options: ["Nagsisi ang ama at nangangakong magbabago", "Namatay ang ama", "Siningil ang anak ng utang", "Umalis ang ama sa pamilya"],
+            answer: 0
+        },
+
+        // TATA SELO (31-40)
+        {
+            story: "Tata Selo",
+            question: "11. Ano ang pangunahing tanong na bumabalot sa isip ni Celso?",
+            options: ["Bakit tahimik ang bahay", "Bakit umiiyak si Isidra", "...", "..."],
+            answer: 1
+        },
+        {
+            story: "Tata Selo",
+            question: "2. Ano ang pangunahing bisyo ng ama?",
+            options: ["Sugal", "Pag-inom ng kape", "Pagsusugal at alak", "Pag-inom ng alak"],
+            answer: 3
+        },
+        {
+            story: "Tata Selo",
+            question: "3. Ano ang dalawang emosyon na nararamdaman ng mga bata tuwing hinihintay nila ang ama?",
+            options: ["Takot at pananabik", "Takot at galit", "Sorpresa at ligaya", "Lungkot at awa"],
+            answer: 0
+        },
+        {
+            story: "Tata Selo",
+            question: "4. Ano ang inuuwing pagkain ng ama paminsan-minsan?",
+            options: ["Sabaw ng pansit", "Supot ng pansit guisado", "Tinapay at itlog", "Kanin at gulay"],
+            answer: 1
+        },
+        {
+            story: "Tata Selo",
+            question: "5. Sino ang pinakabatang anak na napatay ng ama?",
+            options: ["Anak na lalaki", "Anak na babae, si Mui Mui", "Anak na kambal", "Nakababatang anak"],
+            answer: 1
+        },
+        {
+            story: "Tata Selo",
+            question: "6. Ano ang naging reaksiyon ng ama matapos mamatay si Mui Mui?",
+            options: ["Nagpakalayo-layo", "Hinabol ang mga anak", "Nagsisi at naging mabuting ama", "Nagbigay ng pera sa kanila"],
+            answer: 2
+        },
+        {
+            story: "Tata Selo",
+            question: "7. Saan ipinakita ng ama ang pagmamahal niya kay Mui Mui matapos itong mamatay?",
+            options: ["Nag-alay ng regalo sa bahay", "Naglibang sa ibang bayan", "Nagbigay ng pera sa pamilya", "Nagdala ng pagkain sa libingan"],
+            answer: 3
+        },
+        {
+            story: "Tata Selo",
+            question: "8. Ano ang tunggalian sa maikling kuwentong ito?",
+            options: ["Tao laban sa kalikasan", "Tao laban sa lipunan", "Tao laban sa sarili (guilt/sisisi)", "Tao laban sa hayop"],
+            answer: 2
+        },
+        {
+            story: "Tata Selo",
+            question: "9.Ano ang naging dahilan kung bakit napatay ng ama si Mui Mui?",
+            options: ["Hindi sumunod sa utos", "Nahuli sa pagkain", "Tumangging kumuha ng tubig", "Naasar sa tuloy-tuloy na halinghing ni Mui Mui"],
+            answer: 3
+        },
+        {
+            story: "Tata Selo",
+            question: "10. Paano nagwakas ang kwento?",
+            options: ["Nagsisi ang ama at nangangakong magbabago", "Namatay ang ama", "Siningil ang anak ng utang", "Umalis ang ama sa pamilya"],
+            answer: 0
+        },
+
+        // WALANG SUGAT (41-50)
+        {
+            story: "Walang Sugat",
+            question: "11. Ano ang pangunahing tanong na bumabalot sa isip ni Celso?",
+            options: ["Bakit tahimik ang bahay", "Bakit umiiyak si Isidra", "...", "..."],
+            answer: 1
+        },
+        {
+            story: "Walang Sugat",
+            question: "2. Ano ang pangunahing bisyo ng ama?",
+            options: ["Sugal", "Pag-inom ng kape", "Pagsusugal at alak", "Pag-inom ng alak"],
+            answer: 3
+        },
+        {
+            story: "Walang Sugat",
+            question: "3. Ano ang dalawang emosyon na nararamdaman ng mga bata tuwing hinihintay nila ang ama?",
+            options: ["Takot at pananabik", "Takot at galit", "Sorpresa at ligaya", "Lungkot at awa"],
+            answer: 0
+        },
+        {
+            story: "Walang Sugat",
+            question: "4. Ano ang inuuwing pagkain ng ama paminsan-minsan?",
+            options: ["Sabaw ng pansit", "Supot ng pansit guisado", "Tinapay at itlog", "Kanin at gulay"],
+            answer: 1
+        },
+        {
+            story: "Walang Sugat",
+            question: "5. Sino ang pinakabatang anak na napatay ng ama?",
+            options: ["Anak na lalaki", "Anak na babae, si Mui Mui", "Anak na kambal", "Nakababatang anak"],
+            answer: 1
+        },
+        {
+            story: "Walang Sugat",
+            question: "6. Ano ang naging reaksiyon ng ama matapos mamatay si Mui Mui?",
+            options: ["Nagpakalayo-layo", "Hinabol ang mga anak", "Nagsisi at naging mabuting ama", "Nagbigay ng pera sa kanila"],
+            answer: 2
+        },
+        {
+            story: "Walang Sugat",
+            question: "7. Saan ipinakita ng ama ang pagmamahal niya kay Mui Mui matapos itong mamatay?",
+            options: ["Nag-alay ng regalo sa bahay", "Naglibang sa ibang bayan", "Nagbigay ng pera sa pamilya", "Nagdala ng pagkain sa libingan"],
+            answer: 3
+        },
+        {
+            story: "Walang Sugat",
+            question: "8. Ano ang tunggalian sa maikling kuwentong ito?",
+            options: ["Tao laban sa kalikasan", "Tao laban sa lipunan", "Tao laban sa sarili (guilt/sisisi)", "Tao laban sa hayop"],
+            answer: 2
+        },
+        {
+            story: "Walang Sugat",
+            question: "9.Ano ang naging dahilan kung bakit napatay ng ama si Mui Mui?",
+            options: ["Hindi sumunod sa utos", "Nahuli sa pagkain", "Tumangging kumuha ng tubig", "Naasar sa tuloy-tuloy na halinghing ni Mui Mui"],
+            answer: 3
+        },
+        {
+            story: "Walang Sugat",
+            question: "10. Paano nagwakas ang kwento?",
+            options: ["Nagsisi ang ama at nangangakong magbabago", "Namatay ang ama", "Siningil ang anak ng utang", "Umalis ang ama sa pamilya"],
+            answer: 0
+        }
+    ];
+
+    // Quiz State
+    let currentQuestion = 0;
+    let userAnswers = Array(50).fill(null);
+    let userName = "";
+    let userEmail = "";
+
+    // DOM Elements
+    const userInfoForm = document.getElementById('user-info');
+    const quizContainer = document.getElementById('quiz-container');
+    const quizTitle = document.getElementById('quiz-title');
+    const quizQuestions = document.getElementById('quiz-questions');
+    const progressText = document.getElementById('progress-text');
+    const progressBar = document.getElementById('quiz-progress');
+    const resultsContainer = document.getElementById('results-container');
+    const resultsText = document.getElementById('results-text');
+    const retakeBtn = document.getElementById('retake-btn');
+
+    // Event Listeners
+    userInfoForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        userName = document.getElementById('user-name').value;
+        userEmail = document.getElementById('user-email').value;
+        userInfoForm.style.display = 'none';
+        quizContainer.style.display = 'block';
+        showQuestion();
+    });
+
+    retakeBtn.addEventListener('click', resetQuiz);
+
+    // Functions
+    function showQuestion() {
+        const q = quizData[currentQuestion];
+        const isLastQuestion = currentQuestion === 49; // 50th question
+
+        quizQuestions.innerHTML = `
+            <div class="mb-3">
+                <small class="text-muted">${q.story}</small>
+                <p class="fw-bold mt-2">${q.question}</p>
+                ${q.options.map((opt, i) => `
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="question" 
+                               id="opt-${i}" value="${i}" 
+                               ${userAnswers[currentQuestion] === i ? 'checked' : ''}>
+                        <label class="form-check-label" for="opt-${i}">${opt}</label>
+                    </div>
+                `).join('')}
+            </div>
+            <div class="d-flex justify-content-between">
+                <button ${currentQuestion === 0 ? 'disabled' : ''} 
+                        class="btn btn-secondary" id="prev-btn">Previous</button>
+                <button class="btn btn-custom" id="next-btn">
+                    ${isLastQuestion ? 'Finish' : 'Next'}
+                </button>
+            </div>
+        `;
+
+        // Update progress
+        progressText.textContent = `Question ${currentQuestion + 1} of 50`;
+        progressBar.style.width = `${((currentQuestion + 1) / 50) * 100}%`;
+
+        // Navigation listeners
+        document.getElementById('prev-btn').addEventListener('click', () => {
+            saveAnswer();
+            currentQuestion--;
+            showQuestion();
+        });
+
+        document.getElementById('next-btn').addEventListener('click', () => {
+            saveAnswer();
+            if (isLastQuestion) {
+                calculateScore(); // Auto-submit on last question
+            } else {
+                currentQuestion++;
+                showQuestion();
+            }
+        });
+    }
+
+    function saveAnswer() {
+        const selected = document.querySelector('input[name="question"]:checked');
+        if (selected) userAnswers[currentQuestion] = parseInt(selected.value);
+    }
+
+    function calculateScore() {
+        let score = 0;
+    
+        // 1. Kalkulahin ang overall score at score bawat kwento
+        const storyScores = {
+            "Ang Ama": 0,
+            "Paalam sa Pagkabata": 0,
+            "Miliminas": 0,
+            "Tata Selo": 0,
+            "Walang Sugat": 0
+        };
+
+        quizData.forEach((q, i) => {
+            if (userAnswers[i] === q.answer) {
+                score++;
+                storyScores[q.story]++; // Dagdagan ang score ng kwento
+            }
+        });
+
+        const percentage = (score / 50) * 100;
+
+        // 2. Ipadala ang data kasama ang score bawat kwento
+        emailjs.send("service_7p5yq2b", "template_yf9s4ze", {
+            to_name: userName,
+            to_email: userEmail,
+            score: score,
+            total_questions: 50,
+            percentage: percentage.toFixed(1),
+            date: new Date().toLocaleDateString(),
+            // Idagdag ang score bawat kwento:
+            score_ama: storyScores["Ang Ama"],
+            score_paalam: storyScores["Paalam sa Pagkabata"],
+            score_miliminas: storyScores["Miliminas"],
+            score_selo: storyScores["Tata Selo"],
+            score_sugat: storyScores["Walang Sugat"]
+        }).then(() => {
+            alert("Results sent to your email!");
+        });
+
+        // 3. I-display ang results sa page
+        resultsContainer.style.display = 'block';
+        quizContainer.style.display = 'none';
+        resultsText.innerHTML = `
+            <h4>Your Score: ${score}/50</h4>
+            <p>Ang Ama: ${storyScores["Ang Ama"]}/10</p>
+            <p>Paalam sa Pagkabata: ${storyScores["Paalam sa Pagkabata"]}/10</p>
+            <p>Miliminas: ${storyScores["Miliminas"]}/10</p>
+            <p>Tata Selo: ${storyScores["Tata Selo"]}/10</p>
+            <p>Walang Sugat: ${storyScores["Walang Sugat"]}/10</p>
+        `;
+    }
+
+    function resetQuiz() {
+        currentQuestion = 0;
+        userAnswers = Array(50).fill(null);
+        resultsContainer.style.display = 'none';
+        quizContainer.style.display = 'block';
+        showQuestion();
+    }
+</script>
+</body>
+
+</html>
