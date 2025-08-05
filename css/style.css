@@ -77,8 +77,9 @@ h4 {
 }
 
 .sidebar-logo img {
-    height: 30px;
-    margin-right: 10px;
+    height: 40px;
+    margin-right: 15px;
+    filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.2));
 }
 
 .sidebar-nav {
@@ -180,4 +181,5 @@ a.sidebar-link {
         width: 100vw;
     }
 }
+
 
