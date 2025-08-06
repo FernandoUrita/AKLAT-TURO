@@ -397,55 +397,6 @@
             font-weight: 600;  /* Semibold */
         }
 
-        /* Add this to your style section */
-.navbar-toggler {
-    padding: 0.25rem 0.5rem;
-    font-size: 1.25rem;
-    line-height: 1;
-    background-color: transparent;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 0.25rem;
-    transition: all 0.3s;
-}
-
-.navbar-toggler-icon {
-    display: inline-block;
-    width: 1.5em;
-    height: 1.5em;
-    vertical-align: middle;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100%;
-}
-
-/* Make sure the toggle button is visible on mobile */
-@media (max-width: 768px) {
-    .navbar-toggler {
-        display: block !important;
-    }
-}
-
-        /* Sidebar active state */
-#sidebar.active {
-    margin-left: -250px; /* Adjust based on your sidebar width */
-}
-
-/* Smooth transition for sidebar */
-#sidebar {
-    transition: all 0.3s;
-}
-
-/* Make sure content adjusts when sidebar toggles */
-.main {
-    transition: all 0.3s;
-    margin-left: 250px; /* Should match sidebar width */
-}
-
-#sidebar.active ~ .main {
-    margin-left: 0;
-}
-
         /* Responsive styles */
         @media (max-width: 768px) {
             .hero {
@@ -600,7 +551,7 @@
         </aside>
         <div class="main">
             <nav class="navbar navbar-expand px-3 border-bottom">
-                <button class="navbar-toggler" id="sidebar-toggle" type="button">
+                <button id="sidebar-toggle" type="button">
                     <span class="navbar-toggler-icon"></span>
                 </button>               
             </nav>
@@ -1083,6 +1034,7 @@
 </body>
 
 </html>
+
 
 
 
