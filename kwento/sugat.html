@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AKLAT-TURO - Walang Sugat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/image/read.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/image/read.png">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-book-open"></i>
+                    AKLAT-TURO
+                </div>
+                <nav>
+                    <ul>
+                        
+                    </ul>
+                </nav>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="story-header">
+        <div class="container">
+            <h1 id="story-title">Walang Sugat</h1>
+            <div class="story-meta">
+                <span>Ni Severino Reyes</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="story-content-section">
+        <div class="container">
+            <div class="reader-controls">
+                <button class="control-btn" id="font-decrease"><i class="fas fa-font"></i> <span>Smaller Text</span></button>
+                <button class="control-btn" id="font-reset"><i class="fas fa-font"></i> <span>Reset</span></button>
+                <button class="control-btn" id="font-increase"><i class="fas fa-font"></i> <span>Larger Text</span></button>
+            </div>
+            
+            <div class="story-content" id="story-content"></div>
+            
+            <div class="story-navigation">
+                <button class="nav-btn" id="prev-btn"><i class="fas fa-arrow-left"></i> Previous</button>
+                <span class="chapter-indicator">Chapter 1 of 6</span>
+                <button class="nav-btn" id="next-btn">Next <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <br>
+        </div>
+    </section><br>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <ul class="footer-links">
+                    <li><i class="fas fa-book-open"></i> <a href="/index.html">AKLAT-TURO</a></li>
+                </ul>
+                <p class="copyright">© 2025 AKLAT-TURO. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav ul');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.toggle('show');
+        });
+
+        // Story Reader Functionality
+        const storyContent = document.getElementById('story-content');
+        const fontIncrease = document.getElementById('font-increase');
+        const fontDecrease = document.getElementById('font-decrease');
+        const fontReset = document.getElementById('font-reset');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        
+        // Sample story data
+        const story = {
+            title: "Walang Sugat",
+            author: "Severino Reyes",
+            chapters: [
+                "Si Julia at ilan pang mga kababaihan ay nagbuburda ng mga panyo na iaalay nila para sa kanilang minamahal. Inialay naman ni Julia ang ibinuburda niya para sa kanyang malayong pinsan na si Tenyong. Nakalagay sa kanyang ibinuburda ang ANF o Antonio Narcisco Flores na siyang buong pangalan ni Tenyong. Bumisita si Tenyong sa bahay nina Julia. Si Aling Juana na ina ni Julia ay tutol sa pag-iibigan nila Tenyong at Julia. Nais ni Aling Julia na mapangasawa ng kanyang anak si Miguel na pamangkin ng kura paroko. Si Miguel ay mayaman ngunit mangmang. Dumating si Lucas sa bahay nina Julia upang iparating kay Ternyong na dinakip ng mga Kastila ang ilang Pilipino kasama na si Kapitan Inggo na ama ni Tenyong dahil sila ay pinaghihinalaang rebelde. Dali-dali naming pumunta si Tenyong kasama ang kanyang ina na si Kapitana Putin, si Julia, Aling Juana at ilan pang kababayan. Sila ay pumunta sa kwartel sa Bulacan kung saan ikinulong ang kanyang ama. Nang sila’y makapasok na sa kwartel ay nalaman ni Tenyong na pito sa mga ikinulong ay patay na at ang kanyang ama ay naghihingalo na dahil sa pagpapahirap ng mga prayle sa mga ito. Nakita ni Tenyong kung paano unti-unting nalagutan ng hininga ang kanyang ama. Sinumpa niya na ipaghihiganti niya ang kanyang ama at bibigyan ng katarungan ang pagkamatay nito samantalang si Kapitana Putin naman ay hinimatay at hindi nakayanan ang nangyari sa kanyang asawa. Sa gitna ng pag-aalala sa ina, pagdadalamhati para sa pagkamatay ng ama at ang pagmamahal kay Julia ay mas minabuti pa rin niyang umalis upang ipaghiganti ang ama at para ipagtanggol ang kanyang inang bayan sa kamay ng mga Kastila. Ayaw mang pumayag ni Julia sa pag-alis at paghihiganti ni Tenyong ay umalis pa rin ito.",
+                "Lumipas ang isang taon ngunit wala pa rin kahit isang sulat o balita na natatanggap si Julia galling kay Tenyong. Siya’y labis na nag-aalala na. Patuloy pa rin siyang sinasabihan ng ina na tanggapin na ang kasal na ninanais ni Miguel. Napilitang sumang-ayon si Julia sa kagustuhan ng kanyang ina ngunit hinihintay pa rin niya ang pagbabalik ng kanyang tunay na minamahal na si Tenyong. Sumulat siya kay Tenyong upang ipaalam ang magaganap na kasal at ang nais ni Julia na mailigtas siya nito. Ipinahatid niya ito kay Lucas. Kalungkutan ang bumakas sa mukha ni Tenyong ng makuha niya ang sulat galing kay Julia. Sinasabi nito na pumanaw na ang kanyang ina at sinabi rin sa sulat ang tungkol sa magaganap na kasal. Humingi ng tulong si Tenyong kay Heneral Leon Villa at sumumpa ito na siya’y tutulungan upang si Tenyong ay maipakasal pa rin kay Julia. Hindi na nakagawa pa ng sulat si Tenyong dahil biglang sumugod ang mga Makabebe. Sinabi niya na lamang kay Lucas na iparating kay Julia na siya ay babalik na.",
+                "Ipinarating naman ni Lucas ang sinabi ni Tenyong na siya’y babalik na. Pagkalipas ng isang linggo ay nakatanggap ng liham si Julia galing kay Heneral Villa na nagsasabing pumanaw na si Tenyong. Labis na kalungkutan ang naramdaman ni Julia sa nabasang sulat at tuluyan na rin siyang pumayag sa kagustuhan ng kanyang ina. Dumating na ang araw ng kasal nina Miguel at Julia ngunit bago magsimula ang kasal ay inanunsyo ni Lucas ang pagdating ni Tenyong na buhay pa ngunit tila mamamatay na. Hindi natuloy ang kasalan dahil kailangang mangumpisal ni Tenyong bago pumanaw. Ibinalong ni Tenyong sa kura paroko ang kanyang kahilingan na ikasal muna siya kay Julia bago siya tuluyang mamatay. Pumayag naman si Aling Juana at Miguel dahil alam nilang matutuloy pa rin ang kasal ni Julia at Miguel dahil mamamatay rin si Tenyong at magiging balo si Julia. Ikinasal nga sina Tenyong at Julia. Biglang tumayo si Tenyong sa kanyang kinahihigaan upang ipakita sa lahat na wala siyang sugat."
+            ],
+            currentChapter: 0
+        };
+
+        // Font size adjustment
+        function adjustFontSize(direction) {
+            let currentSize = parseInt(window.getComputedStyle(storyContent).fontSize);
+            
+            if (direction === 'increase') {
+                currentSize = Math.min(24, currentSize + 1);
+            } else if (direction === 'decrease') {
+                currentSize = Math.max(14, currentSize - 1);
+            } else { // reset
+                currentSize = 18;
+            }
+            
+            storyContent.style.fontSize = `${currentSize}px`;
+            localStorage.setItem('fontSize', currentSize);
+        }
+
+        // Load saved font size
+        const savedFontSize = localStorage.getItem('fontSize');
+        if (savedFontSize) {
+            storyContent.style.fontSize = `${savedFontSize}px`;
+        }
+
+        // Navigation
+        function updateChapter() {
+            const chapterContent = story.chapters[story.currentChapter];
+            const paragraphs = chapterContent.split('\n\n').filter(p => p.trim() !== '');
+            
+            let contentHTML = '';
+            paragraphs.forEach(p => {
+                contentHTML += `<p>${p}</p>`;
+            });
+            
+            storyContent.innerHTML = contentHTML;
+            document.querySelector('.chapter-indicator').textContent = `Chapter ${story.currentChapter + 1} of ${story.chapters.length}`;
+            
+            // Update button states
+            prevBtn.disabled = story.currentChapter === 0;
+            nextBtn.disabled = story.currentChapter === story.chapters.length - 1;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (story.currentChapter > 0) {
+                story.currentChapter--;
+                updateChapter();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (story.currentChapter < story.chapters.length - 1) {
+                story.currentChapter++;
+                updateChapter();
+            }
+        });
+
+        // Initialize
+        updateChapter();
+        fontIncrease.addEventListener('click', () => adjustFontSize('increase'));
+        fontDecrease.addEventListener('click', () => adjustFontSize('decrease'));
+        fontReset.addEventListener('click', () => adjustFontSize('reset'));
+    </script>
+</body>
+</html>
+

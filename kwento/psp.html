@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AKLAT-TURO - Paalam sa Pagkabata</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/image/read.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/image/read.png">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-book-open"></i>
+                    AKLAT-TURO
+                </div>
+                <nav>
+                    <ul>
+                        
+                    </ul>
+                </nav>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="story-header">
+        <div class="container">
+            <h1 id="story-title">Paalam sa Pagkabata</h1>
+            <div class="story-meta">
+                <span>Ni Nazareno D. Bas</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="story-content-section">
+        <div class="container">
+            <div class="reader-controls">
+                <button class="control-btn" id="font-decrease"><i class="fas fa-font"></i> <span>Smaller Text</span></button>
+                <button class="control-btn" id="font-reset"><i class="fas fa-font"></i> <span>Reset</span></button>
+                <button class="control-btn" id="font-increase"><i class="fas fa-font"></i> <span>Larger Text</span></button>
+            </div>
+            
+            <div class="story-content" id="story-content"></div>
+            
+            <div class="story-navigation">
+                <button class="nav-btn" id="prev-btn"><i class="fas fa-arrow-left"></i> Previous</button>
+                <span class="chapter-indicator">Chapter 1 of 6</span>
+                <button class="nav-btn" id="next-btn">Next <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <br>
+        </div>
+    </section><br>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <ul class="footer-links">
+                    <li><i class="fas fa-book-open"></i> <a href="/index.html">AKLAT-TURO</a></li>
+                </ul>
+                <p class="copyright">© 2025 AKLAT-TURO. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav ul');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.toggle('show');
+        });
+
+        // Story Reader Functionality
+        const storyContent = document.getElementById('story-content');
+        const fontIncrease = document.getElementById('font-increase');
+        const fontDecrease = document.getElementById('font-decrease');
+        const fontReset = document.getElementById('font-reset');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        
+        // Sample story data
+        const story = {
+            title: "Paalam sa Pagkabata",
+            author: "Nazareno D. Bas",
+            chapters: [
+                "Wala akong nakikitang pagbabago. Tulad nang nagdaang mga madaling-araw: ang ginaw, katahimikan, dilim- iyon din ang bumubuo ng daigdig ng aking kamalayan. Maraming bagay ang dapat mailarawan. Ngunit alam kong iisa lamang ang kahulugan ng mga iyon. Alam ko. <br><br> Sa kabilang silid, sa kuwarto nina Nanay at Tatay, naririnig ko ang pigil na paghikbi. Umiiyak na naman si Nanay. Ang sunud-sunod na paghikbi ay tila pandagdag sa kalungkutan ng daigdig. Napabuntung-hininga ako. Umiiling-iling. Hanggang ngayon hindi ko pa nakikita ang tunay na dahilan ng damdaming iyon na matagal nang umalipin sa kanya. <br><br> Walang malinaw sa aking isipan. Mula sa aking pagkamulat ang pagkainip ay kakambal ng aking buhay. Sa aking pag-iisa di ko maiwasan ang pangarap na magkaroon ng batang kapatid na nag-aangkin ng mabangong hininga at taglay ang ngiti ng isang anghel. Ngunit ang damdamin ko'y tila tigang na lupang pinagkaitan ng ulan. <br><br> Maliwanag na ang silangan nang ako'y bumangon. May bago na namang umaga. Ngunit ang tanawin sa bahay ay walang pagbabago. Tulad ng dati, nakikita ko si Nanay na nakaupo at nag-iisip sa may hagdanan. Nakatitig siya sa sampayan ng lambat ni Tatay. At madalas ang kanyang pagbubuntong-hininga. <br><br> Matagal ko nang nakikita ang sampay na lambat. Ngunit hindi ko nakikitang ito'y ginagamit ni Tatay. Noon ay walang halaga ito sa akin. Nagsimula ang pagpansin ko sa lambat noong ito'y itinapon ni Nanay mga dalawang taon na ang nakakaraan. Galit na galit si Tatay sa ginawa ni Nanay. Pinagbuhatan ni Tatay ng kamay si Nanay. Pagkatapos ipinabalik kay Nanay ang lambat sa sampayan. Hanggang ngayon ba'y hindi ka pa nakakalimot, Tomas? Alam ng Diyos na wala akong kasalanan. Ang kanyang ginawa ang siya mong ginagawa tuwing ikaw ay darating sa madaling-araw. Ang kanyang amoy ay siya ring amoy na galing sa dagat. Magkatulad ang inyong ikinikilos. Sino ang hindi mag-aakala na siya ay hindi ikaw? Huli na nang malaman ko ang katotohanan. Huli na nang siya ay aking makilala. Totoong lumigaw siya sa akin. At mula noon ay alam mo iyon. Ikaw ang aking iniibig, Tomas. Kailan mo pa malilimutan ang nangyari? <br><br> Tuluyang umiyak si Nanay. Umungol lamang si Tatay. Nanlilisik ang mga matang tumingin sa lambat at pagkatapos ay bumaling sa akin. May ibig sabihin ang tingin niyang nag-aapoy. Maliban sa takot na aking nararamdaman ay wala akong naintindihan sa pangyayaring iyon. <br><br> Mula noon ay hindi na ginalaw ni Nanay ang lambat. Naluma na ito ngunit buung-buo pa rin sa aking paningin. Buung-buo pa rin sa paningin ni Nanay. Ano kaya ang misteryong napapaloob sa lambat na iyon? Alam kong alam ni Nanay ang hindi ko nalalaman. At kailangang malaman ko ito. May karapatan akong makaalam. <br><br> Nilapitan ko si Nanay na malalim pa rin ang iniisip. Hinalikan ko ang kanyang kamay. May ibig akong itanong tungkol sa misteryo ng lambat. Ngunit nauntol ang ibig kong sabihin nang magpatuloy ang kanyang pagluha.",
+                "Lakad na Celso, malapit nang dumating ang Tatay mo.Sa labasan, sumalubong sa akin ang bagong araw. Tumingin ako. Maliwanag ang langit. Langit? May gumugulo sa aking kalooban. Kalawakan. Iyan ang sabi ng aking guro sa ikaapat na baitang ng primarya. Iyan ay hindi langit kundi hanggang lamang ng pananaw ng tao. Ang langit ay nasa tao. Hindi nakikita. Hindi nahihipo. Hindi naaabot. Naabot na kaya ni Nanay ang langit? <br><br> Ano pa ang hinihintay mo, Celso? <br><br> Ipinahid ko sa mukha ang suot kong sando. Humakb ang pagkatapos. Maya-maya'y tumakbo na ako ng  <br><br> Masasaya silang nagkukuwentuhan habang hinihintay ang mga bangkang galing sa laot. Masasaya silang nagkukuwentuhan habang hinihintay ang mga mangiinisda. Sumandal ako sa buhanginan, malapit sa kinaaaupuhan ng dalawang lalaking may katandaan na. Sa laot ako nakatingin at pinagmamasdan ang galaw ng mga alon na pandagdag sa kagandahan ng kalikasan. <br><br> Napalingon ako nang marinig ang tugtog ng gitara mula sa di-kalayuang bahay-pawid. At sabay kong narinig ang malungkot na awiting nagsasad ng kasawian sa pag-ibig. At mula na naman naantig ang aking damdamin. Habang pinakinggan ko ang malungkot na kundiman umalingawngaw ang mahinang pag-uusap ng dalawang lalaki sa tabi ko. <br><br> Nariryan na naman siya. <br><br> Talagang pambihira ang kanyang pagmamahal. Naniniwala akong nagpapatoloy ang kanyang pangarap habang di pa namamatay ang babae sa kanyang buhay. Hindi nawawala ang kanyang pag-asa. Kung kailan natutupad ang kanyang pangarap Diyos lamang ang nakakaalam. <br><br> Dining na dining ko ang mga katawa habang nagpapatuloy ang malungkot na kundimang naging bahagi na ng aking buhay. Tumayo ako at ibinaling ang paningin sa bahay-pawid sa ilim ng kalawuyan. Patuloy ang awitin. Naalala ko ang sabi ni Tatay. <br><br> Nagbawan ako sa bahay-pawid na iyon. Mahigpit ang utos ni Tatay. Lumingon ako sa laot. Nasa malayo na mga bangka ng mga mangingisda. Bumaling ako sa pinanggalingan ng awit na ngayon'y gumaganang sa aking pandinig. At para akong hinihila. Nakaluluhuran ko na ang ipinagbabawal ni Tatay. Mabilis ang aking paglakad at sa ilang saglit harap ko na ang tinagobang nagtataas at umaawit. May luha sa kanyang mga mata. <br><br> Tumingin siya sa akin. Inilapag ang gitara sa ibabaw ng papag na kinauupuan. Tumayo siya at dahan-dahang lumapit sa akin. Kinabahan ako. Umaakma akong tumakbo ngunit nahawakan niya ang aking kamay. Nagpumiglas ako upang makabwala sa kanyang pagyaya sa isa kong ngunit lalong humigpit ang kanyang pagyakap. Umiyak ako. <br><br> Ngumiti siya at pinahid ang aking mga luha. Hinimas ang aking ulo. Unti-unting lumawak ang aking paghinga. Nararamdaman ko ang kanyang pagmamahal nang tumingin ako sa kanya. Muli niya niyapos. <br><br> Dalawin mo akong palagi, ha?",
+                "Hindi ako kumibo. Tinititigan ko siya. Ang kanyang mga mata, ang ilong, ang labi—lahat parang nakakabit sa sa dingding ng aming bahay. Talagang siya ang nakita ko sa salamin na nakasabit sa Saan? Alam ko na, sa salamin. <br><br> Napatingin ako sa dalampasigan nang marinig ko ang hiyawan. Nagdadatingan na pala ang mga bangka at nag-uunahan ang mga mangingisda. Nagmadali akong tumakbo upang salubungin ang Tatay. Malayo pa ako ng makita ko siyang nakatao sa may dinuungan ng kanyang bangka. Natanawan niya ako. Masama ang titig niya sa akin. Galit. Kinabahan ako. Lapit rito, Celso! <br><br> Malakas ang sigaw ni Tatay. Nanginig akong lumapit. At bigla akong sinampal. <br><br> Di ko gusto ang batang matigas ang ulo! Di lang sampal ang matitikman mo kapag umulit ka pa. Hala, kunin mo ang mga isda at sumunod kaagad sa akin. <br><br> Habang naglalakad ay sinulat ko ang mga pangyayaring nakita ko. Talagang mahirap intindihin si Tatay. Wala namang dahilan upang iwasan ko ang taong nasa bahay-pawid. Di naman dapat katakutan ang kanyang mukha at boses. Bakit kaya hinihip-pawid ako ni Tatay? <br><br> Matapos akong mag-almusal, nandun na naman si Tatay sa sampyan ng lambat. Nakakatakot at nagtatagpi ng puti na bahagi ng lambat. Alamong aabutin siya ng matagal bago matapos ang kanyang gawain. Matapos makapaghanghuli siya'y matutulog. Pagkagising maghahanapunan. At di pa man ganap ang gabi balik na naman sa dagat. Iyan ang buhay ni Tatay. At iyan ang bahagi ng buhay sa Tatay. <br><br> Sa aking kinauupuan sa may bintana nakikita ko si Nanay na nakaupo sa hagdanan. Tahimik at nakatingin sa naman sa sampyan ng lambat. Luhaan na naman ang kanyang mga mata. At naalala ko ang pangyayari noong itinapon ni Nanay. Lahat may itinatagong kahulugan. At naalala ko ang nangyari kanina sa dalampasigan. <br><br> Lumaipit ako sa salamin sa dingding. Pinagmasdan ko ang sarili. Nakita ko sa aking isipan ang mukha ng tao. Unti-unting lumawas ang aking kamalayan. Biglang kumulo ang aking dugo habang iniisip ang nakasampang na aking kalagayan. Nagdilim ang aking paningin. Nadama kong hinahap ko ang katarungan ang lambat <br><br> Nagpunta ako sa kusinaan. Hinanap ko ang itak ni Nanay na pangsimbak ng kahoy. Bitibit ko ito pinuntahan ang sampyan ng lambat. Pinagtataga ko ang lambat. <br><br> Huwag, Celso! saway ni Nanay na nanginig ang boses. Huwag! <br><br> Naiba sa aking pandinig ang pagsigaw ni Nanay. Pati si Tatay ay natigilan. Nabigla sa aking ginawa ay hindi ko pansin. Hinalabas ko ng itak ang lambat at saka lang ako tumigil nang ito'y magkagutay-gutay na at nagkalat sa aking paanan. <br><br> Nag-aaway ang mga mata ni Tatay na humarap sa akin. Siya sa unang pagkakataon ay hindi inalis ang tingin sa kanya. Nilabanan ko at bigla akong hindii ako nagagalit kundi humihingi lamang ng pang-unawa. Ngunit bigla akong napatimbuwang nang matamaan ng malakas na suntok at napahinga sa pira-pirasong wasak na lambat. <br><br> Nahihilio ako, parang ibig himatayin. Umiikot ang aking paningin. Parang may nakita akong anino – si Tatay na sumusurot kay Nanay.",
+                "Ngunit, Tomas, nagmamakaawa si Nanay. Wala siyang kasalanan. Maawa ka sa kanya. <br><br> Pumanhik ka, Isidora! singhal ni Tatay. Pumanhik ka na habang ako'y nakapapipigil pa. <br><br> Dahan-dahan akong bumangon at sumuray-suray na lumapit kay Tatay. Ngunit isang tadyak ang sumalubong sa akin. Napatihaya ako ngunit tinangka kong makatayo. Mabigat ang pakiramdam ko sa aking katawan at ako'y gumapang. Ngunit sinabunutan ako ni Tatay at iniingod sa lupa ang aking mukha. Humihingal ako ngunit di ko makuhang umiyak. Nasasalat ko ang magkahalong dugo at pawis sa aking pisngi. <br><br> Di ko pansin ang mga gasgas sa dalawang siko. Sa labis na panghina'y umusad ako nang umusad. Hanggang sa nangangato kong mga bisig ay yumapos sa mga binti ni Tatay. Naramdaman ko ang panlalamig ng katawan at ako ay napahandusay sa kanyang paanan. <br><br> Hindi ko na alam kung gaano katagal ang pagkawala ng aking malay. Naramdaman ko na lamang may mainit na mga bisig na yumayakap sa akin. Kinusot ko ang aking mga mata. Sumalubong sa aking paningin ang maamong mukha ni Tatay. Pagsisisi. Pag-unawa. Lahat ay kasalungat sa dati niyang gawa. Lalong humigpit ang kanyang pagyakap at kinabig ang aking mukha sa kanyang dibdib sa tapat ng kanyang puso. "
+            ],
+            currentChapter: 0
+        };
+
+        // Font size adjustment
+        function adjustFontSize(direction) {
+            let currentSize = parseInt(window.getComputedStyle(storyContent).fontSize);
+            
+            if (direction === 'increase') {
+                currentSize = Math.min(24, currentSize + 1);
+            } else if (direction === 'decrease') {
+                currentSize = Math.max(14, currentSize - 1);
+            } else { // reset
+                currentSize = 18;
+            }
+            
+            storyContent.style.fontSize = `${currentSize}px`;
+            localStorage.setItem('fontSize', currentSize);
+        }
+
+        // Load saved font size
+        const savedFontSize = localStorage.getItem('fontSize');
+        if (savedFontSize) {
+            storyContent.style.fontSize = `${savedFontSize}px`;
+        }
+
+        // Navigation
+        function updateChapter() {
+            const chapterContent = story.chapters[story.currentChapter];
+            const paragraphs = chapterContent.split('\n\n').filter(p => p.trim() !== '');
+            
+            let contentHTML = '';
+            paragraphs.forEach(p => {
+                contentHTML += `<p>${p}</p>`;
+            });
+            
+            storyContent.innerHTML = contentHTML;
+            document.querySelector('.chapter-indicator').textContent = `Chapter ${story.currentChapter + 1} of ${story.chapters.length}`;
+            
+            // Update button states
+            prevBtn.disabled = story.currentChapter === 0;
+            nextBtn.disabled = story.currentChapter === story.chapters.length - 1;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (story.currentChapter > 0) {
+                story.currentChapter--;
+                updateChapter();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (story.currentChapter < story.chapters.length - 1) {
+                story.currentChapter++;
+                updateChapter();
+            }
+        });
+
+        // Initialize
+        updateChapter();
+        fontIncrease.addEventListener('click', () => adjustFontSize('increase'));
+        fontDecrease.addEventListener('click', () => adjustFontSize('decrease'));
+        fontReset.addEventListener('click', () => adjustFontSize('reset'));
+    </script>
+</body>
+
+</html>
+
+

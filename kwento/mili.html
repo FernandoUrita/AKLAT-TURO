@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AKLAT-TURO - Miliminas: Taong 0069</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/image/read.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/image/read.png">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-book-open"></i>
+                    AKLAT-TURO
+                </div>
+                <nav>
+                    <ul>
+                        
+                    </ul>
+                </nav>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="story-header">
+        <div class="container">
+            <h1 id="story-title">Miliminas: Taong 0069</h1>
+            <div class="story-meta">
+                <span>Ni Rogelio Sikat</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="story-content-section">
+        <div class="container">
+            <div class="reader-controls">
+                <button class="control-btn" id="font-decrease"><i class="fas fa-font"></i> <span>Smaller Text</span></button>
+                <button class="control-btn" id="font-reset"><i class="fas fa-font"></i> <span>Reset</span></button>
+                <button class="control-btn" id="font-increase"><i class="fas fa-font"></i> <span>Larger Text</span></button>
+            </div>
+            
+            <div class="story-content" id="story-content"></div>
+            
+            <div class="story-navigation">
+                <button class="nav-btn" id="prev-btn"><i class="fas fa-arrow-left"></i> Previous</button>
+                <span class="chapter-indicator">Chapter 1 of 6</span>
+                <button class="nav-btn" id="next-btn">Next <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <br>
+        </div>
+    </section><br>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <ul class="footer-links">
+                    <li><i class="fas fa-book-open"></i> <a href="/index.html">AKLAT-TURO</a></li>
+                </ul>
+                <p class="copyright">© 2025 AKLAT-TURO. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav ul');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.toggle('show');
+        });
+
+        // Story Reader Functionality
+        const storyContent = document.getElementById('story-content');
+        const fontIncrease = document.getElementById('font-increase');
+        const fontDecrease = document.getElementById('font-decrease');
+        const fontReset = document.getElementById('font-reset');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        
+        // Sample story data
+        const story = {
+            title: "Milimas: Taong 0069",
+            author: "Ruby V. Gamboa-Alcantara",
+            chapters: [
+                "Miliminas, ito ang pangkat ng mga pulo na matatagpuan sa kalagitanaan ng Dagat Pasipiko bago pa nagkaroon ng malaking pagbaha. Ang pangkat na ito ng puloay binubuo ng higit sa 7,200 mga pulo. Ito ang tawag sa mga mamamayan ng nasabing kapuluan at katulad din natin ang mga balat at hitsura. Ang kanilang pananalita aykatulad rin sa atin. <br><br> Ngunit dahilan sa nahuhuli sila sa sibilisasyon may mga pag-uugalisila at pagsasalita na kaiba rin sa atin.      Mik ang tawag sa kanilang pera. At tawag nila sa isang taong mayroong isang milyong mik o higit pa ay mikinaryo. Sa pagbibihis ay malaki ang pagkakaiba natin sa kanila . Ang kanilang tawag sa pormal na damit para sa mga babae ay ang katumbas sa atin ngayon na bathing suit at kamiseta at korto para sa lalaki. Para mapangalagaan ang kanilang moralidad sa pagbibihis, may batas silang ipinatutupad na hulihin ang sinumang magdaramit ng mahaba pa sa sa mini-skirt at micro-skirt. <br><br> Ang upuan sa kanilang mga sasakyan ay nilalagyan ng kiluhan upang masukat ang timbang ng mga pasahero dahil ito ang pagbabatayan ng kanilang pamasahe. Ito ang tinatawag ng kanilang Public &quot;Diservice Commission&quot; na equality before the kilo. <br><br> Tungkol  naman sa pamamalakad  ng  trapiko  ay  may  ordinansa  sila  na  nagpaparusa  sa mabagal magpatakbo. Ang kasalanan ng mabagal magpatakbo ay tinatawag na not overspeeding.    Mayroon din silang serbisyo sa tubig na tinatawag na Nawasdak. Ang ahensyang ito ay may 3 uri ng tubo. Ang una ay nilalabasan ng Malinis na tubig; ang ikalawa ay nilalabasan ng Maruming tubing; at ang ikatlo, walang tubing kundi Hangin lamang. Nakapagtataka? Ito ang pag-uuri ng Quatwasdak; Ang gripo na may malinis na tubig ay mahal ang bayad at para sa mayaman lamang;  ang  may  maruming  tubig,  para  sa  lahat  ng  marunong  magtrabaho  o  kung  mayaman naman, gustong magtrabaho; at ang pangatlo, para sa mga mahirap at ito ay walang bayad. ",
+                "Mayroon ding nagmomonopolyo ng kuryente. Ito ang Patay Electric Company. Tatlo rin ang uri ng serbisyo nito sa publiko. Ito ang Light Service, Brownout Service at Blackout Service. <br><br> Ang Light service ay nagbibigay ng ilaw sa araw at gabi. Ang Brownout service ay nagbibigay ng ilaw kung hindi mo kailangan at mawawala kung kailangan mo ang ilaw sa pagkain ng hapunan at pagbabasa kung gabi. Kung gusto mo lang ng pangdekorasyon, ang dapat mong ipakabit ay iyong Blackout service. <br><br> Ang mga sidewalk sa kanilang lungsod ay higit na malalapad kaysa sa atin. Bakit nga ba? Ang dahilan ay sapagkat ang mga bazaar ang umuukupa ng mga sidewalk at ang mga nagtitinda ng sigarilyo at kung anu-ano ang siyang umuukupa ng mga kwartu- kwarto na kung sa atin ngayon ay mga bazaar. At sabihin pa, ang mga may-ari ng mga bazaar ang hinuhuli ng mga pulis sa kanilang pagtitinda sa mga sidewalk. <br><br> Ang mga opisyal sa bansa na tumaba habang sila ay nasa serbisyo ay pinapatawan ng sala o akusasyon sa kanilang mga resolution, genuine na mga batas , at iba pa. <br><br> Upang  mapagkatiwalaan  ang  mataas  na  opisyal  ng  bansa,  itinatag  ang  anti-  genuine commission para sa paghuli ng mga nagpaparami ng pag-aari o tumatanggap ng mga lagay na genuine, tulad ng genuine na resolutions, genuine na pera, genuine na batas, at iba pa. <br><br> Ang pinakamalaking tindahan ay tinatawag na Super Blackmarket. May pintura itong itim. Dito ipinagbibili ang mga bagay na ngayon ay ipinagbabawal tulad ng busil na sigarilyo, apyan, mga  bagay na ninakaw,  at  mga  ipinagbibiling  pekeng bagay.  Ang  mga  genuine  na bagay ay ipinagbibili ng patago at tigkakaunti lamang dahil laging hinuhuli ng mga alagad ng katiwalian ang nagbebenta ng mga ito at kinukumpiska pa ang kanilang mga paninda. Katiwalian ang tawag nila sa kanilang batas, at ang nagpapatupad nito ay tinatawag nilang alagad ng katiwalian. Ang mga baril ng mga alagad ng katiwalian ay paltik. Dahil sa ang nag-aari ng lisensyadong baril ay hinuhuli at pinapatawan ng salang illegal possession of genuine firearm.",
+                "Sa panahong ito ay uso rin ang kickback na kaunti lang ang ikinaiba sa ating tinatawag na kickback  ngayon.  Ang  mga  buwaya  ng  bansa  (ito  ang  tawag  sa  mga  mataas  na  opisyal  sa pamahalaan) ay sinisipa sa likod para sa bawat gatas o milk na tanggaping suhol sa kanyang mga transaksyon.  Ang  mga  buwaya  ng  bansa  ay  tumitigil  sa  pagpapasipa  kapag  makapal  na  ang kanilang  likod  dahil  ito  ang  magiging  isang  batayan  sa  pagpili  ng  isang  &quot;Outstanding Buwaya of the Year; <br><br> Dalawang klase ng batas ang ipinalabas ng kanilang batasan na tinatawag na: Circus of Miliminas;. Ang isang batas ay para sa mayaman at ang isa ay para sa mahirap. <br><br> Ang mga alagad ng bansa ay maliit lang ang sweldo pero malaki naman ang kanilang maaaring gastusing representasyon. <br><br> Ang mga mamamayan ng Miliminas ay masyadong relihiyoso. Tatlo ang paborito nilang santo- ang mik (ang pera mismo), ang buwaya, at si Santasa, isang taong may sungay at buntot katulad ng tinatawag natin ngayong satanas. Ang pinakamalaking kasalanang magagawa ay ang hindi pagpatay, hindi pagtataksil sa asawa at hindi pag- angkin sa yaman ng iba, pagkaawa sa mga mahirap at hindi pagbibigay ng anumang hingin sa kanila ng mga buwaya ng bansa.",
+                "Ang mga malaking transakyon ng pamahalaan ay pinagkakasunduan sa ilalim ng puno, at tinatawag nila itong shady transactions. Ang iba naman ay binubuo sa ilalim ng mesa ng mga opisyal ng pamahalaan. Dahil dito, ang mga mesa ay mataas para hindi mauntog ang ulo ng mga opisyal kapag sumusuot sila sa ilalim nito. <br><br> Ang mga hues de pas natin ngayon ay tinatawag nila na hues de aupas. Parang nakakatawa, ano? Pero iyan ang katotohanan. At isa pang nakapagtataka, ang ginugwardyahan ay ang mga walang kasalanan. Bakit ganoon ang pamamalakad ng hustisya rito? Iyan ang batas. At ang balak ay mapili ng hues de paupas kung sinu-sino sa mga mamamayan ang palaaway at eskandaloso at sino ang mababait. Pagkatapos ng bista at bumaba na ang hatol, ibinibilanggo ang mga walang sala upang ihiwalay sa maraming mga nakakalayang masasamang tao. Sabihin pa, malalaki ang bilangguan  dito  at  kumpleto  sa  mga  kasangkapan  kaysa  sa  labas.  Ang  lahat  ng  bilanggo  ay tinatawag na VIP (Very Important Prisoner). <br><br> Kung tungkol sa sistema ng pagpili ng mga opisyal, ibang-iba sa atin. Simula pa lang ng kampanya, magkaharap na sa entablado ang magkakalaban sa pulitika. Nagbabatuhan ng putik. Sa atin ngayon ang  mudslinging ay pasaring lamang sa  mga  talumpati  samantalang sa kanila ay talagang ginagawa. Ang bawat kandidato ay dapat magsinungaling, magmura, mambato ng putik sa kalaban, mangako ng mga hindi matutupad, dahil kung hindi nya ito gagawin ay pawawalan ng bisa  ang  kanyang  kandidatura  ng  komisyon  ng  kalokohan,  ang  ahensyang  namamahala  sa eleksyon. Sa araw ay namimili rin ang tao ng iboboto kahit na ang isinusulat sa balota ay hindi na nila pinag-iisipan. Ang inisip nila ay ang naipon na bala ng mga kandidato, at mga napatay ng kanilang mga kampon, at ang may pinakamaraming pera. Ang kanilang ibinoto ay tinatawag na ibinoto sa bala at hindi ibinoto sa balota.",
+                "Ngayo’y naging napakalawak ang kanyang awa sa sarili bilang isang malupit na inulilang ama naipinaglalamay ang wala sa panahong pagkamatay ng kanyang dugo at laman. Mula sa kanyang awa sa sarili ay bumulwak ang wagas na pagmamahal sa patay na bata, kaya’t madalahati siyang nagtatawag, ‘Kaawa-awa kong Mui Mui!” “Kaawa-awa kong anak!”. Nakita niya ito sa kanyang libingan sa tabi ng gulod – payat, maputla at napakaliit – at ang mga alon ng lungkot at awa na nagpayanig sa matipuno niyang mga balikat at brasong kayumanggi ay nakakatakot tingnan. Pinilit siyang aluin ng mga kapitbahay, na ang iba’y lumayo na may luha sa mga mata at bubulong- bulong, ‘tunay na lasenggo nga siya at iresponsable, pero tunay na mahal niya ang bata. <br><br> Tinuyo ng nagdadalamhating ama ang kanyang mga luha at saka tumayo. Mayroon siyang naisip. Mula ngayon, magiging mabuti na siyang ama. Dinukot niya sa bulsa ang perang ibinigay ng kanyang amo sa asawa na kiming inabot naman nito agad sa kanya, tulad ng nararapat. <br><br> Binilang niya ang papel-de-bangko. Isa man dito ay hindi niya gagastahin sa alak. Hindi na kailanman. Matibay ang pasiya na lumabas na siya ng bahay. Pinagmasdan siya ng mga bata. Saan kaya ito pupunta, tanong nila. Sinundan nila ito ng tingin. Papunta iyo sa bayan. Nalungkot sila dahil tiyak nila na uuwi itong dalang muli ang mga bote ng beer. Pagkalipas ng isang oras, bumalik ang ama. May bitbit itong malaking supot na may mas maliit na supot sa loob. Inilapag nito ang dala sa mesa. Hindi makapaniwala ang mga bata sa kanilangnakita, pero iyon ba’y kahon ng mga tsokolate at tumingin silang mabuti. Mayroong supot ng ubas at isang kahon yata ng biskwit.",
+                "Nagtalo ang mga bata kung ano ang laman niyon. Sabi ng pinakamatandang lalaki’y biskwit; nakakita na siya ng maraming kahong tulad niyon sa tindahanni Ho Chek sa bayan. Ang giit naman ng pinakamatandang babae ay kendi, iyong katulad ng minsa’y ibinigay sa kanila ni Lau Soh, na nakatira doon sa malaking bahay na pinaglalabahanng nanay. Ang kambal ay nagkasya sa pandidilat at pagngisi sa pananabik; masaya na sila anoman ang laman niyon. Kaya’t nagtalo at nanghula ang mga bata, takot na hipuin ang yaman na walang senyas mula sa ama. Inip silang lumabas ito ng kwarto. <br><br> `Di nagtagal ay lumabas ito, nakapagpalit na ng damit, at dumiretso sa mesa. Hindi dumating ang senyas na nagpapahintulot sa mga batang ilapat ang mga kamay sa pinag-iinteresang yaman. Kinuha nito ang malaking supot at muling lumabas ng bahay. Hindi matiis na mawala sa mataang yaman na sa wari’y kanila na sana, nagbulungan ang dalawang pinakamatanda nang matiyak na hindi sila maririnig ng ama. ‘tingnan natin kung saan siya pupunta. Nagpumilit na sumamaang kambal, at ang apat ay sumunod nang malayu- layo sa ama. Sa karaniwang pagkakataon, tiyak na makikita sila nito at sisigawang bumalik sa bahay, pero ngayo’y nasa isang bagay lamang ang isip nito at hindi man lang sila napuna. <br><br> Dumating ito sa libingan sa tabing-gulod. Kahuhukay pa lamang ng puntod na kanyang hinintuan. Lumuhod ito at dinukot ang mga laman sa supot na dahan-dahang inilapag sa puntod, habang pahikbing nagsalita, ‘pinakamamahal kong anak, walang maiaalay sa iyo ang iyong amakundi ang mga ito. Sana’y tanggapin mo. Nagpatuloy itong nakipag-usap sa anak, habang nagmamasid sa pinagkukublihang mga halaman ang mga bata. Madilim na ang langit at ang maitim na ulap ay nagba- bantang mapunit anumang saglit, pero patuloy sa pagdarasal at pag-iyak ang ama. <br><br> Naiwan itong nakaluhod kahit bumagsak na ang ulan. Pagkuwa’y umalis ito, naninikit sa katawan ang basang kamisedentro. Sa isang iglap, ang kanina pang inip na inip na mga bata ay dumagsa sa yaman. Sinira ng ulan ang malaking bahagi niyon pero sa natira sa kanilang nailigtas, nagsalu-salo sila tulad sa isang piging na alam nila na di nila mararanasang muli."
+            ],
+            currentChapter: 0
+        };
+
+        // Font size adjustment
+        function adjustFontSize(direction) {
+            let currentSize = parseInt(window.getComputedStyle(storyContent).fontSize);
+            
+            if (direction === 'increase') {
+                currentSize = Math.min(24, currentSize + 1);
+            } else if (direction === 'decrease') {
+                currentSize = Math.max(14, currentSize - 1);
+            } else { // reset
+                currentSize = 18;
+            }
+            
+            storyContent.style.fontSize = `${currentSize}px`;
+            localStorage.setItem('fontSize', currentSize);
+        }
+
+        // Load saved font size
+        const savedFontSize = localStorage.getItem('fontSize');
+        if (savedFontSize) {
+            storyContent.style.fontSize = `${savedFontSize}px`;
+        }
+
+        // Navigation
+        function updateChapter() {
+            const chapterContent = story.chapters[story.currentChapter];
+            const paragraphs = chapterContent.split('\n\n').filter(p => p.trim() !== '');
+            
+            let contentHTML = '';
+            paragraphs.forEach(p => {
+                contentHTML += `<p>${p}</p>`;
+            });
+            
+            storyContent.innerHTML = contentHTML;
+            document.querySelector('.chapter-indicator').textContent = `Chapter ${story.currentChapter + 1} of ${story.chapters.length}`;
+            
+            // Update button states
+            prevBtn.disabled = story.currentChapter === 0;
+            nextBtn.disabled = story.currentChapter === story.chapters.length - 1;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (story.currentChapter > 0) {
+                story.currentChapter--;
+                updateChapter();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (story.currentChapter < story.chapters.length - 1) {
+                story.currentChapter++;
+                updateChapter();
+            }
+        });
+
+        // Initialize
+        updateChapter();
+        fontIncrease.addEventListener('click', () => adjustFontSize('increase'));
+        fontDecrease.addEventListener('click', () => adjustFontSize('decrease'));
+        fontReset.addEventListener('click', () => adjustFontSize('reset'));
+    </script>
+</body>
+
+</html>
+
